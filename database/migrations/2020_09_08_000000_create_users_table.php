@@ -19,9 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedBigInteger('authority_id');
+            $table->text('image_name')->nullable();
+            $table->text('public_id')->nullable();
+            $table->string('address');
+            $table->text('hp_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->unsignedInteger('area_id')->nullable()->default(NULL);
+
+            $table->foreign('authority_id')->references('id')->on('authorities')->onDelete('cascade');
         });
     }
 

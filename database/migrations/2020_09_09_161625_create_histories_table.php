@@ -15,7 +15,14 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('this_month_saving_price');
+            $table->integer('saving_price');
+            $table->integer('this_month_count');
+            $table->integer('count');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

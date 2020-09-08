@@ -15,6 +15,7 @@ class CreateAuthoritiesTable extends Migration
     {
         Schema::create('authorities', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type');
             $table->timestamps();
         });
     }
