@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use JD\Cloudder\Facades\Cloudder;
+use App\Http\Requests\FoodRequest;
+use App\Food;
+use Auth;
 
 class FoodController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        return view('foods.index');
+        $foods = Food::all();
+        return view('foods.index', compact('foods'));
     }
 
     /**
@@ -32,9 +41,39 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FoodRequest $request)
     {
-        //
+        if ($request->price < $request->discount_price) {
+            return back()->with('message','割引価格以上の値段を定価にご入力ください');
+        }
+
+        $food = new Food;
+
+        $food->name = $request->name;
+        $food->trading_time = $request->trading_time;
+        $food->price = $request->price;
+        $food->discount_price = $request->discount_price;
+        $food->coupon = $request->coupon;
+        $food->price_difference = $request->price - $request->discount_price;
+        $food->user_id = Auth::id();
+
+        
+
+        // if ($image = $request->file('image')) {
+        //     $image_path = $image->getRealPath();
+        //     Cloudder::upload($image_path, null);
+        //     $publicId = Cloudder::getPublicId();
+        //     $logoUrl = Cloudder::secureShow($publicId, [
+        //         'width'     => 200,
+        //         'height'    => 200
+        //     ]);
+        //     $food->image_path = $logoUrl;
+        //     $food->public_id  = $publicId;
+        // }
+
+        $food->save();
+        
+        return redirect()->route('foods.index');
     }
 
     /**
