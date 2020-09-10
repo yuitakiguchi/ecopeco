@@ -32,7 +32,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('foods.create');
     }
 
     /**

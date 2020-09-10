@@ -20,6 +20,7 @@ class CreateFoodsTable extends Migration
             $table->integer('price_difference');
             $table->text('image_name')->nullable();
             $table->text('public_id')->nullable();
+            $table->text('name');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->time('trading_time');

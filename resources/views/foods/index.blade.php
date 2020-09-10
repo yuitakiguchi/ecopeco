@@ -4,6 +4,7 @@
 <div class="container">
   <input type="search" name="area" placeholder="地域を検索する">
   <button type="submit" class="area-search">検索</button>
+  <a href="{{ route('foods.create') }}">新規投稿</a>
   <div class="row mb-5">
     <div class="col-md-4 mb-5">
 	    <div class="card text-center">
