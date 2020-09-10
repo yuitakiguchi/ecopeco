@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('authority_id');
             $table->text('image_name')->nullable();
             $table->text('public_id')->nullable();
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->text('hp_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
