@@ -14,6 +14,8 @@
                 <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
                 <p class="card-text">クーポン：{{ $food->coupon }}枚</p>
             </div>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ route('foods.edit', $food->id) }}">商品の編集</a>
+            <button type="button" class="btn btn-secondary btn-lg btn-block">商品の削除</button>
         </div>
     </div>
 </div>
