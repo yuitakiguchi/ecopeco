@@ -38,5 +38,7 @@ class CreateFoodsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('foods');
+        $table->dropColumn('image_path');
+        $table->dropColumn('public_id');
     }
 }
