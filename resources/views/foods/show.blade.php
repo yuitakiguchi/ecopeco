@@ -8,7 +8,7 @@
                 <h5>〇〇店</h5>
             </div>
             <div class="card-body">
-                <img src="" alt="商品の写真">
+                <img src="{{ $food->image_path }}" alt="商品の写真">
                 <p class="card-text">商品名：{{ $food->name }}</p>
                 <p class="card-text">引取終了時間：{{ $food->trading_time }}</p>
                 <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>

@@ -59,17 +59,17 @@ class FoodController extends Controller
 
         
 
-        // if ($image = $request->file('image')) {
-        //     $image_path = $image->getRealPath();
-        //     Cloudder::upload($image_path, null);
-        //     $publicId = Cloudder::getPublicId();
-        //     $logoUrl = Cloudder::secureShow($publicId, [
-        //         'width'     => 200,
-        //         'height'    => 200
-        //     ]);
-        //     $food->image_path = $logoUrl;
-        //     $food->public_id  = $publicId;
-        // }
+        if ($image = $request->file('image')) {
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width'     => 200,
+                'height'    => 200
+            ]);
+            $food->image_name = $logoUrl;
+            $food->public_id  = $publicId;
+        }
 
         $food->save();
         
