@@ -96,7 +96,8 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        //
+        $food = Food::find($id);
+        return view('foods.edit', compact('food'));
     }
 
     /**
@@ -106,9 +107,20 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FoodRequest $request, $id)
     {
-        //
+        $food = Food::find($id);
+
+        $food -> name = $request -> name;
+        $food -> trading_time = $request -> trading_time;
+        $food -> price = $request -> price;
+        $food -> discount_price = $request -> discount_price;
+        $food -> coupon = $request -> coupon;
+
+        $food -> save();
+
+        return view('foods.show', compact('food'));
+
     }
 
     /**
