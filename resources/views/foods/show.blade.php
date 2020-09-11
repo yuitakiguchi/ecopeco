@@ -15,7 +15,11 @@
                 <p class="card-text">クーポン：{{ $food->coupon }}枚</p>
             </div>
             <a class="btn btn-primary btn-lg btn-block" href="{{ route('foods.edit', $food->id) }}">商品の編集</a>
-            <button type="button" class="btn btn-secondary btn-lg btn-block">商品の削除</button>
+            <form action='{{ route('foods.destroy', $food->id) }}' method='post'>
+              {{ csrf_field() }}
+              {{ method_field('DELETE') }}
+              <input type='submit' value='削除' class="btn btn-secondary btn-lg btn-block" onclick='return confirm("削除しますか？？");'>
+            </form>
         </div>
     </div>
 </div>
