@@ -30,7 +30,7 @@
         <input type="text" name="name">
       </div>
       <div class="col-12 mb-4">
-        <p>取引締め切り時間</p>
+        <p>取引終了時間</p>
         <input type="time" name="trading_time">
       </div>
       <div class="col-12 mb-4">
