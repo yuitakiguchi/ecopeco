@@ -21,6 +21,8 @@ class CreateAreaUserTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
+
+            $table->unique(['user_id', 'area_id']);
         });
     }
 

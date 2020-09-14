@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->text('public_id')->nullable();
             $table->string('address')->nullable();
             $table->text('hp_url')->nullable();
+            $table->text('introduction')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

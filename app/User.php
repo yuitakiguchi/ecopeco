@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address','hp_url', 'authority_id'
+        'name', 'email', 'password','address','hp_url', 'authority_id', 'introduction'
     ];
 
     /**
@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function areas()
+    {
+        return $this->belongsToMany('App\Area')->withTimestamps();
+    }
 }
