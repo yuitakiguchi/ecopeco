@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\User;
+use App\Area;
+use Auth;
 
 class UserController extends Controller
 {
@@ -56,7 +60,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $areas = Area::all();
+        // areasに何が入っているといいか。→DBに入っているエリア全て。
+        return view('users.edit', compact('user','areas'));
+
     }
 
     /**
@@ -66,9 +74,58 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        //userを更新している。
+        $user = User::find($id);
+
+        $user -> name = $request -> name;
+        $user -> email = $request -> email;
+        $user -> address = $request -> address;
+        $user -> hp_url = $request -> hp_url;
+        $user -> introduction = $request -> introduction;
+
+        $user -> save();
+        //user更新終了
+
+        $areas = $user->areas()->get();
+
+        foreach($areas as $area){
+            $area->users()->detach(Auth::id());
+        }
+        // $area->users()->detach(Auth::id()); 
+        // undifined variable area
+
+        
+        foreach($request->areas as $areaName){
+            $area = Area::where('name', $areaName)->first();
+            // すでにあるエリアかどうか。
+
+            if($areaName === null){
+                continue;
+            }
+            
+            if($area){
+                $area->users()->attach(Auth::id());
+                continue;
+            }
+            // あったらスキップ。
+
+            // Areaを作ってる
+            $area = new Area;
+            $area -> name = $areaName;
+            $area -> save();
+            // Area作成。
+
+            //Area と userを紐付ける。→ attach() 多対多 中間テーブルに保存できる。
+            $area->users()->attach(Auth::id());
+            // $user->areas()->attach($area->id);
+            // users() method → どこに定義されているか。 
+            
+        }
+
+
+        return redirect()->route('users.edit',$user->id);
     }
 
     /**
