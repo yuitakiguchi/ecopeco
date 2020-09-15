@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'           => 'required|max:25',
+            'name'    => 'required|max:25',
             'email'   => 'required',
         ];
     }
@@ -33,8 +33,8 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'                 => 'ニックネームは必須です。',
-	        'name.max'                      => 'ニックネームは25文字以内で記入してください。',
+            'name.required'          => 'ニックネームは必須です。',
+	        'name.max'               => 'ニックネームは25文字以内で記入してください。',
             'email.required'         => 'メールアドレスは必須です。',
     ];
 }

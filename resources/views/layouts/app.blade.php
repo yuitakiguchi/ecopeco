@@ -38,11 +38,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('users.edit', $user->id) }}" class="nav-link">
-                                {{ __('Profile') }}
-                            </a>
-                        </li>
+                        
 
                         <!-- Authentication Links -->
                         @guest
@@ -71,6 +67,11 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('users.edit', Auth::user()->id )}}" class="nav-link">
+                                    {{ __('Profile') }}
+                                </a>
                             </li>
                         @endguest
                     </ul>
