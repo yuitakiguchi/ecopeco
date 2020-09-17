@@ -1,10 +1,10 @@
 @extends('layouts.app')　
 
 @section('content')
+@if (Auth::user()->authority_id === 2)
 <div class="container">
     <input type="search" name="area" placeholder="地域を検索する">
     <button type="submit" class="area-search">検索</button>
-    <a href="{{ route('foods.create') }}">新規投稿</a>
     <div class="row mb-5 justify-content-center">
         @foreach ($foods as $food)
         <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
@@ -24,8 +24,44 @@
         @endforeach
     </div>
 </div>
-
+@else
 <div class="container">
+  <a href="{{ route('foods.create') }}">新規投稿</a>
+  @foreach ($companyFoods  as $companyFood)
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+            <img src="{{ $companyFood->image_name }}" alt="商品の写真">
+            <p class="card-text">商品名：{{ $companyFood->name }}</p>
+            </div>
+            <div class="col-md-6 ">
+              <div class="row justify-content-center">
+                <div class="card text-center" >
+                  <div class="card-body">
+                    <p class="card-text">予約者名　クーポン利用〇枚　予約時刻</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <a class="btn btn-primary" href="#">予約中</a>
+              <a class="btn btn-primary" href="#">購入済</a>
+            </div>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ route('foods.edit', $companyFood->id) }}">この商品の情報を編集する</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
+  @endif
+</div>
+
+{{-- 企業マイページ --}}
+{{-- <div class="container">
   @foreach ($companyFoods as $companyFood)
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -48,5 +84,5 @@
     </div>
   </div>
   @endforeach
-</div>
+</div> --}}
 @endsection

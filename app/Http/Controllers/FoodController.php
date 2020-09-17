@@ -21,8 +21,9 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::all();
-        $companyFoods = Food::where('user_id', Auth::id())->get();
+        // $foods = Food::all();
+        $foods = Food::latest()->get();
+        $companyFoods = Food::where('user_id', Auth::id())->latest()->get();
         return view('foods.index', compact('foods','companyFoods'));
     }
 
