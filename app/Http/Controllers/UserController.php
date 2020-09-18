@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use JD\Cloudder\Facades\Cloudder;
 use App\User;
 use App\Area;
 use Auth;
@@ -78,20 +79,36 @@ class UserController extends Controller
     {
         //userを更新している。
         $user = User::find($id);
-
         $user -> name = $request -> name;
         $user -> email = $request -> email;
         $user -> address = $request -> address;
         $user -> hp_url = $request -> hp_url;
         $user -> introduction = $request -> introduction;
+        $user -> phone_number = $request -> phone_number;
+
+
+        if ($image = $request->file('image-name')) {
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width'     => 200,
+                'height'    => 200
+            ]);
+            $user->image_name = $logoUrl;
+            $user->public_id  = $publicId;
+        }
+
 
         $user -> save();
         //user更新終了
+        $user -> load('areas');
 
         $areas = $user->areas()->get();
-
+        
         foreach($areas as $area){
             $area->users()->detach(Auth::id());
+            
         }
         // $area->users()->detach(Auth::id()); 
         // undifined variable area
