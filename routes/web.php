@@ -30,3 +30,5 @@ Route::resource('users', 'UserController');
 Route::resource('bookings', 'BookingController');
 
 Route::resource('histories', 'HistoryController');
+
+Route::resource('companies', 'CompanyController');
