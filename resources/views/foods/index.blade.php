@@ -34,7 +34,7 @@
         <div class="card-body">
           <div class="row justify-content-center">
             <div class="col-md-4">
-            <img src="{{ $companyFood->image_name }}" alt="商品の写真">
+            <a href="{{ route('foods.show', $companyFood->id) }}"><img src="{{ $companyFood->image_name }}" alt="商品の写真"></a>
             <p class="card-text">商品名：{{ $companyFood->name }}</p>
             </div>
             <div class="col-md-6 ">

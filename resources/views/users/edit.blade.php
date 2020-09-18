@@ -23,6 +23,11 @@
                     <input type="text" name="name" value="{{ $user->name }}">
                 </div>
 
+                <div class="card-phone-number">
+                    <p>電話番号</p>
+                    <input type="text" name="phone_number">
+                </div>
+
                 <div class="card-email">
                     <p>メールアドレス</p>
                     <input type="text" name="email" value="{{ $user->email }}">
