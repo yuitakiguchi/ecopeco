@@ -81,66 +81,10 @@ class UserController extends Controller
         $user = User::find($id);
         $user -> name = $request -> name;
         $user -> email = $request -> email;
-        $user -> address = $request -> address;
-        $user -> hp_url = $request -> hp_url;
-        $user -> introduction = $request -> introduction;
-        $user -> phone_number = $request -> phone_number;
-
-
-        if ($image = $request->file('image-name')) {
-            $image_path = $image->getRealPath();
-            Cloudder::upload($image_path, null);
-            $publicId = Cloudder::getPublicId();
-            $logoUrl = Cloudder::secureShow($publicId, [
-                'width'     => 200,
-                'height'    => 200
-            ]);
-            $user->image_name = $logoUrl;
-            $user->public_id  = $publicId;
-        }
-
 
         $user -> save();
         //user更新終了
-        $user -> load('areas');
-
-        $areas = $user->areas()->get();
-        
-        foreach($areas as $area){
-            $area->users()->detach(Auth::id());
-            
-        }
-        // $area->users()->detach(Auth::id()); 
-        // undifined variable area
-
-        
-        foreach($request->areas as $areaName){
-            $area = Area::where('name', $areaName)->first();
-            // すでにあるエリアかどうか。
-
-            if($areaName === null){
-                continue;
-            }
-            
-            if($area){
-                $area->users()->attach(Auth::id());
-                continue;
-            }
-            // あったらスキップ。
-
-            // Areaを作ってる
-            $area = new Area;
-            $area -> name = $areaName;
-            $area -> save();
-            // Area作成。
-
-            //Area と userを紐付ける。→ attach() 多対多 中間テーブルに保存できる。
-            $area->users()->attach(Auth::id());
-            // $user->areas()->attach($area->id);
-            // users() method → どこに定義されているか。 
-            
-        }
-
+ 
 
         return redirect()->route('users.edit',$user->id);
     }

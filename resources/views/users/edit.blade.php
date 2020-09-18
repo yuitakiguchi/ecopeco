@@ -1,9 +1,10 @@
 @extends('layouts.app')　
 @section('content')
+@if (Auth::user()->authority_id === 1)
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('companies.update', $user->id) }}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             {{method_field('PATCH')}}
             <div class="card text-center">
@@ -11,11 +12,6 @@
                 <div class="card-image">
                     <label for="exampleFormControlFile1"></label>
                     <input type="file" class="form-control-file" id="image-name" name="image-name" value="画像を変更する">
-                </div>
-
-                <div class="card-name">
-                    <p>ニックネーム</p>
-                    <input type="text" name="name" value="{{ $user->name }}">
                 </div>
 
                 <div class="card-name">
@@ -72,4 +68,33 @@
         </div>
     </div>
 </div>
+@else
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+            {{csrf_field()}}
+            {{method_field('PATCH')}}
+            <div class="card text-center">
+
+                <div class="card-name">
+                    <p>名前</p>
+                    <input type="text" name="name" value="{{ $user->name }}">
+                </div>
+
+                <div class="card-email">
+                    <p>メールアドレス</p>
+                    <input type="text" name="email" value="{{ $user->email }}">
+                </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">更新</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+@endif
 @endsection
