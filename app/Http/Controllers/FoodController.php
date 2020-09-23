@@ -23,7 +23,8 @@ class FoodController extends Controller
     {
         // $foods = Food::all();
         $foods = Food::latest()->get();
-        $companyFoods = Food::where('user_id', Auth::id())->latest()->get();
+        $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
+        // $booking = $foods->bookings->where('user_id', Auth::id())->first();
         return view('foods.index', compact('foods','companyFoods'));
     }
 
