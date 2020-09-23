@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    //
+    public function user()
+    {
+        return $this->belongsTo('App\User')->withTimestamps();
+    }
+
+    public function food()
+    {
+        return $this->belongsTo('App\Food')->withTimestamps();
+    }
+
 }
