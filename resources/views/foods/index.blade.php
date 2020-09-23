@@ -46,8 +46,15 @@
                   </div>
                 </div>
                         <div class="col-md-4">
-                          <a class="btn btn-primary" href="#">予約中</a>
-                          <a class="btn btn-primary" href="#">購入済</a>
+                          <form action="{{ route('bookings.update', $booking) }}" method="POST">
+                            @method('PATCH')
+                              @csrf
+                              @if($booking -> is_sold === 0)
+                              <input type="submit" value="予約中" class="btn btn-primary ">
+                              @else
+                              <input type="submit" value="購入済み" class="btn btn-danger ">
+                              @endif
+                          </form>
                         </div>
                 @endforeach
               </div>
