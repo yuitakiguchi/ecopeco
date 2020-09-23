@@ -35,3 +35,6 @@ Route::resource('companies', 'CompanyController');
 
 Route::post('foods/{food}/reservations', 'BookingController@store')->name('reservations');
 Route::post('foods/{food}/unreservations', 'BookingController@destroy')->name('unreservations');
+
+Route::post('foods/{food}/purchase', 'BookingController@store')->name('purchase');
+Route::post('foods/{food}/unpurchase', 'BookingController@destroy')->name('unpurchase');

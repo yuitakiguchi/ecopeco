@@ -79,7 +79,15 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $booking = Booking::find($id);
+        if ($booking -> is_sold === 0){
+            $booking -> is_sold = 1;
+        } else {
+            $booking -> is_sold = 0;
+        }
+        $booking -> save();
+
+        return redirect()->route('foods.index');
     }
 
     /**
