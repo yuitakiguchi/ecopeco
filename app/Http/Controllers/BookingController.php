@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Food;
+use App\User;
+use App\Booking;
+use Auth;
 
 class BookingController extends Controller
 {
@@ -32,9 +36,16 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Food $food)
     {
-        //
+        $booking = new Booking;
+
+        $booking->is_sold = 0;
+        $booking->food_id = $food->id;
+        $booking->user_id = Auth::id();
+        $booking->save();
+
+        return redirect()->route('foods.show', $food);
     }
 
     /**
@@ -77,8 +88,13 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Food $food)
     {
-        //
+
+        $booking = Booking::where('user_id', Auth::id())->where('food_id', $food->id)->first();
+
+        $booking -> delete();
+
+        return redirect()->route('foods.show', $food);
     }
 }

@@ -50,7 +50,17 @@
                         <p class="card-text">クーポン：{{ $food->coupon }}枚</p>
                     </div>
             </div>
-            <a class="btn btn-primary btn-lg btn-block" href="#">クーポンを使用する</a>
+            @if($isReserved)
+                <form action="{{ route('unreservations', $food) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="クーポンを取り消す" class="btn btn-danger btn-lg btn-block">
+                </form>
+            @else
+                <form action="{{ route('reservations', $food) }}" method="POST">
+                    @csrf
+                    <input type="submit" value="クーポンを使用する" class="btn btn-primary btn-lg btn-block">
+                </form>
+            @endif
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <img src="{{ $food->user->image_name }}" alt="店舗写真">

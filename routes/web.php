@@ -32,3 +32,6 @@ Route::resource('bookings', 'BookingController');
 Route::resource('histories', 'HistoryController');
 
 Route::resource('companies', 'CompanyController');
+
+Route::post('foods/{food}/reservations', 'BookingController@store')->name('reservations');
+Route::post('foods/{food}/unreservations', 'BookingController@destroy')->name('unreservations');

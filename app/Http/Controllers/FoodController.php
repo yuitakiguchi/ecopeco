@@ -86,9 +86,19 @@ class FoodController extends Controller
      */
     public function show($id)
     {
-        $food = Food::find($id);
+        $food = Food::with('bookings')->find($id);
+        $id = Auth::id();
+        $booking = $food->bookings->where('user_id', Auth::id())->first();
+        
+
+        if (empty($booking)) {
+            $isReserved = false;
+        } else {
+            $isReserved = true;
+        }
+
         $companyFoods = Food::where('user_id', Auth::id())->latest()->get();
-        return view('foods.show', compact('food','companyFoods'));
+        return view('foods.show', compact('food','companyFoods','isReserved'));
     }
 
     /**
