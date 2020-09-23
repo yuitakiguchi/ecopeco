@@ -34,21 +34,23 @@
         <div class="card-body">
           <div class="row justify-content-center">
             <div class="col-md-4">
-            <a href="{{ route('foods.show', $companyFood->id) }}"><img src="{{ $companyFood->image_name }}" alt="商品の写真"></a>
-            <p class="card-text">商品名：{{ $companyFood->name }}</p>
+              <a href="{{ route('foods.show', $companyFood->id) }}"><img src="{{ $companyFood->image_name }}" alt="商品の写真"></a>
+              <p class="card-text">商品名：{{ $companyFood->name }}</p>
             </div>
-            <div class="col-md-6 ">
+            <div class="col-md-6">
               <div class="row justify-content-center">
-                <div class="card text-center" >
+                @foreach ($companyFood->bookings as $booking)
+                <div class="card col-md-8 text-center" >
                   <div class="card-body">
-                    <p class="card-text">予約者名　クーポン利用〇枚　予約時刻</p>
+                    <p class="card-text">{{ $booking->user->name }}<br>　クーポン利用1 枚<br>　予約時刻{{ $booking->created_at }}</p>
                   </div>
                 </div>
+                        <div class="col-md-4">
+                          <a class="btn btn-primary" href="#">予約中</a>
+                          <a class="btn btn-primary" href="#">購入済</a>
+                        </div>
+                @endforeach
               </div>
-            </div>
-            <div class="col-md-2">
-              <a class="btn btn-primary" href="#">予約中</a>
-              <a class="btn btn-primary" href="#">購入済</a>
             </div>
             <a class="btn btn-primary btn-lg btn-block" href="{{ route('foods.edit', $companyFood->id) }}">この商品の情報を編集する</a>
           </div>
