@@ -73,6 +73,11 @@
                                     {{ __('Profile') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('users.histories', Auth::user()->id )}}" class="nav-link">
+                                    {{ __('Mypage') }}
+                                </a>
+                            </li>
                         @endguest
                     </ul>
                 </div>

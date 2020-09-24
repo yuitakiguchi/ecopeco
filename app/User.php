@@ -39,11 +39,11 @@ class User extends Authenticatable
 
     public function areas()
     {
-        return $this->belongsToMany('App\Area')->withTimestamps();
+        return $this->hasMany('App\Area');
     }
 
     public function bookings()
     {
-        return $this->belongsToMany('App\Booking')->withTimestamps();
+        return $this->hasMany('App\Booking');
     }
 }

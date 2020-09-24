@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CompanyRequest;
+use App\Company;
+use App\User;
+use App\Area;
+use Auth;
 
 class CompanyController extends Controller
 {
