@@ -8,6 +8,7 @@ use JD\Cloudder\Facades\Cloudder;
 use App\User;
 use App\Area;
 use App\Food;
+use App\Booking;
 use Auth;
 
 class UserController extends Controller
@@ -103,9 +104,10 @@ class UserController extends Controller
 
     public function history($id)
     {
-        // dd($id);
         $user = User::find($id);
         $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
-        return view('users.history', compact('user', 'companyFoods'));
+        $reservationHistorys = Booking::with('user','food')->where('user_id', Auth::id())->where('is_sold', 0)->latest()->get();
+        $purchaseHistorys = Booking::with('user','food')->where('user_id', Auth::id())->where('is_sold', 1)->latest()->get();
+        return view('users.history', compact('user', 'companyFoods', 'purchaseHistorys', 'reservationHistorys'));
     }
 }
