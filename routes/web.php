@@ -26,6 +26,7 @@ Route::resource('authorities', 'AuthorityController');
 Route::resource('areas', 'AreaController');
 
 Route::resource('users', 'UserController');
+Route::get('users/{user}/histories', 'UserController@history')->name('users.histories');
 
 Route::resource('bookings', 'BookingController');
 
