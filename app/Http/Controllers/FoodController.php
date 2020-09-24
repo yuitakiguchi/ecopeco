@@ -87,7 +87,7 @@ class FoodController extends Controller
      */
     public function show($id)
     {
-        $food = Food::with('bookings')->find($id);
+        $food = Food::with('bookings.user', 'user.areas')->find($id);
         $id = Auth::id();
         $booking = $food->bookings->where('user_id', Auth::id())->first();
         
