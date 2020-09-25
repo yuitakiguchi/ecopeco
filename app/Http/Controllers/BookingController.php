@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Food;
 use App\User;
 use App\Booking;
+use App\History;
+use Carbon\Carbon;
 use Auth;
 
 class BookingController extends Controller
@@ -79,6 +81,8 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        DB::beginTransaction();
+        try {
         $booking = Booking::find($id);
         if ($booking -> is_sold === 0){
             $booking -> is_sold = 1;
@@ -86,8 +90,42 @@ class BookingController extends Controller
             $booking -> is_sold = 0;
         }
         $booking -> save();
+        
+        $history = History::where('user_id', $booking->user_id)->first();
+        if($history !== null){
+            $history -> delete();
+        }
 
+        $history = new History;
+
+        $dt = Carbon::now();
+        $totalCount = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->count();
+        $thisMonthCount = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->whereMonth('created_at', $dt->month)->count();
+        $bookings = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->get();
+        $thisMonthBookings = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->whereMonth('created_at', $dt->month)->get();
+        $savingPrice = 0;
+        $thisMonthSavingPrice = 0;
+
+        foreach ($bookings as $booking) {
+            $savingPrice += $booking->food->price_difference;
+        }
+        foreach ($thisMonthBookings as $thisMonthBooking) {
+            $thisMonthSavingPrice += $thisMonthBooking->food->price_difference;
+        }
+        
+        $history -> this_month_saving_price =  $thisMonthSavingPrice;
+        $history -> saving_price = $savingPrice;
+        $history -> count = $totalCount;
+        $history -> this_month_count = $thisMonthCount;
+        $history -> user_id = $booking->user_id;
+        
+        $history -> save();
+        DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
         return redirect()->route('foods.index');
+        
     }
 
     /**
@@ -102,7 +140,7 @@ class BookingController extends Controller
         $booking = Booking::where('user_id', Auth::id())->where('food_id', $food->id)->first();
 
         $booking -> delete();
-
+        
         return redirect()->route('foods.show', $food);
     }
 }
