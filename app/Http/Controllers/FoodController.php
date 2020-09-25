@@ -21,10 +21,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        // $foods = Food::all();
         $foods = Food::latest()->get();
         $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
-        // $booking = $foods->bookings->where('user_id', Auth::id())->first();
         return view('foods.index', compact('foods','companyFoods'));
     }
 
@@ -123,16 +121,20 @@ class FoodController extends Controller
      */
     public function update(FoodRequest $request, $id)
     {
+        
         $food = Food::find($id);
 
+        
         $food -> name = $request -> name;
         $food -> trading_time = $request -> trading_time;
         $food -> price = $request -> price;
         $food -> discount_price = $request -> discount_price;
         $food -> coupon = $request -> coupon;
-
+        
         $food -> save();
-
+        
+        
+        
         return view('foods.show', compact('food'));
 
     }
