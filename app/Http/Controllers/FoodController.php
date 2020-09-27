@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use App\Http\Requests\FoodRequest;
 use App\Food;
+use App\Area;
 use Auth;
 
 class FoodController extends Controller
@@ -19,11 +20,20 @@ class FoodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->input('keyword');
+        $query = Area::query();
+        //もしキーワードが入力されている場合
+        if(!empty($keyword)){   
+            $query ->where('name', 'like', "%{$keyword}%");
+        }
+        
+        $area = $query->first();
         $foods = Food::latest()->get();
         $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
-        return view('foods.index', compact('foods','companyFoods'));
+        return view('foods.index', compact('foods','companyFoods', 'area', 'keyword'));
+
     }
 
     /**

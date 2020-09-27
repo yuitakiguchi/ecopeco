@@ -3,26 +3,56 @@
 @section('content')
 @if (Auth::user()->authority_id === 2)
 <div class="container">
-    <input type="search" name="area" placeholder="地域を検索する">
+  <form action="{{ url('/foods') }}" method="GET">
+    <input type="text" name="keyword" placeholder="地域を検索する" value="{{ $keyword }}" >
     <button type="submit" class="area-search">検索</button>
-    <div class="row mb-5 justify-content-center">
-        @foreach ($foods as $food)
-        <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
-          <a href="{{ route('foods.show',$food->id) }}">
-            <div class="card">
-              <img src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
-              <div class="card-body">
-                <h5 class="card-title">商品名：{{ $food->name }}</h5>
-                <p class="card-text">引取時間：{{ $food->trading_time }}</p>
-                <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
-                <p class="card-text">クーポン{{ $food->coupon }}枚</p>
-              </div>
+  </form>
+  @if ($keyword)
+    @if($area->count())
+      
+      <p>検索結果</p>
+      <div class="row mb-5 justify-content-center">
+        @foreach ($area->users as $user)
+          @foreach ($user->foods as $food)
+            <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
+              <a href="{{ route('foods.show',$food->id) }}">
+                <div class="card">
+                  <img src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
+                  <div class="card-body">
+                    <h5 class="card-title">商品名：{{ $food->name }}</h5>
+                    <p class="card-text">引取時間：{{ $food->trading_time }}</p>
+                    <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
+                    <p class="card-text">クーポン{{ $food->coupon }}枚</p>
+                  </div>
+                </div>
+              </a>
             </div>
-
-          </a>
-        </div>
+          @endforeach
         @endforeach
+      </div>
+    @else
+      <p>見つかりませんでした。</p>
+    @endif
+  @else
+    <div class="row mb-5 justify-content-center">
+      @foreach ($foods as $food)
+      <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
+        <a href="{{ route('foods.show',$food->id) }}">
+          <div class="card">
+            <img src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
+            <div class="card-body">
+              <h5 class="card-title">商品名：{{ $food->name }}</h5>
+              <p class="card-text">引取時間：{{ $food->trading_time }}</p>
+              <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
+              <p class="card-text">クーポン{{ $food->coupon }}枚</p>
+            </div>
+          </div>
+
+        </a>
+      </div>
+      @endforeach
     </div>
+  @endif
 </div>
 @else
 <div class="container">
