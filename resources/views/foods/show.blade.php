@@ -64,7 +64,6 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <img src="{{ $food->user->image_name }}" alt="店舗写真">
-                    <img src="" alt="GoogleMap">
                 </div>
                 <div class="col-md-4">
                     <table class="item-detail-table">
@@ -94,9 +93,17 @@
                                 <th>住所</th>
                                 <td>{{ $food->user->address }}</td>
                             </tr>
-
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{ config('services.google-map.apikey') }}&amp;q={{ $food->user->address }}'
+                        width='100%'
+                        height='320'
+                        frameborder='0'>
+                    </iframe>
                 </div>
             </div>
         </div>
