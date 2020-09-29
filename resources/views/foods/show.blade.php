@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @include('layouts.flash')
             <div class="card-header">
                 <h5>〇〇店</h5>
             </div>
@@ -23,9 +24,9 @@
                 </div>
             <a class="btn btn-primary btn-lg btn-block" href="{{ route('foods.edit', $food->id) }}">商品の編集</a>
             <form action='{{ route('foods.destroy', $food->id) }}' method='post'>
-              {{ csrf_field() }}
-              {{ method_field('DELETE') }}
-              <input type='submit' value='削除' class="btn btn-secondary btn-lg btn-block" onclick='return confirm("削除しますか？？");'>
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <input type='submit' value='削除' class="btn btn-secondary btn-lg btn-block" onclick='return confirm("削除しますか？？");'>
             </form>
         </div>
     </div>
@@ -34,6 +35,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @include('layouts.flash')
             <div class="card-header">
                 <h5>〇〇店</h5>
             </div>
