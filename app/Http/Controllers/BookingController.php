@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Food;
 use App\User;
@@ -13,26 +14,6 @@ use Auth;
 class BookingController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -40,36 +21,23 @@ class BookingController extends Controller
      */
     public function store(Food $food)
     {
-        $booking = new Booking;
-
-        $booking->is_sold = 0;
-        $booking->food_id = $food->id;
-        $booking->user_id = Auth::id();
-        $booking->save();
+        DB::beginTransaction();
+        try {
+            $food -> coupon -- ;
+            $food -> save();
+            
+            $booking = new Booking;
+            //0を定数に変える
+            $booking->is_sold = 0;
+            $booking->food_id = $food->id;
+            $booking->user_id = Auth::id();
+            $booking->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
 
         return redirect()->route('foods.show', $food);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -83,44 +51,44 @@ class BookingController extends Controller
     {
         DB::beginTransaction();
         try {
-        $booking = Booking::find($id);
-        if ($booking -> is_sold === 0){
-            $booking -> is_sold = 1;
-        } else {
-            $booking -> is_sold = 0;
-        }
-        $booking -> save();
-        
-        $history = History::where('user_id', $booking->user_id)->first();
-        if($history !== null){
-            $history -> delete();
-        }
+            $booking = Booking::find($id);
+            if ($booking -> is_sold === 0){
+                $booking -> is_sold = 1;
+            } else {
+                $booking -> is_sold = 0;
+            }
+            $booking -> save();
+            
+            $history = History::where('user_id', $booking->user_id)->first();
+            if($history !== null){
+                $history -> delete();
+            }
 
-        $history = new History;
+            $history = new History;
 
-        $dt = Carbon::now();
-        $totalCount = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->count();
-        $thisMonthCount = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->whereMonth('created_at', $dt->month)->count();
-        $bookings = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->get();
-        $thisMonthBookings = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->whereMonth('created_at', $dt->month)->get();
-        $savingPrice = 0;
-        $thisMonthSavingPrice = 0;
+            $dt = Carbon::now();
+            $totalCount = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->count();
+            $thisMonthCount = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->whereMonth('created_at', $dt->month)->count();
+            $bookings = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->get();
+            $thisMonthBookings = Booking::where('user_id', $booking->user_id)->where('is_sold', 1)->whereMonth('created_at', $dt->month)->get();
+            $savingPrice = 0;
+            $thisMonthSavingPrice = 0;
 
-        foreach ($bookings as $booking) {
-            $savingPrice += $booking->food->price_difference;
-        }
-        foreach ($thisMonthBookings as $thisMonthBooking) {
-            $thisMonthSavingPrice += $thisMonthBooking->food->price_difference;
-        }
-        
-        $history -> this_month_saving_price =  $thisMonthSavingPrice;
-        $history -> saving_price = $savingPrice;
-        $history -> count = $totalCount;
-        $history -> this_month_count = $thisMonthCount;
-        $history -> user_id = $booking->user_id;
-        
-        $history -> save();
-        DB::commit();
+            foreach ($bookings as $booking) {
+                $savingPrice += $booking->food->price_difference;
+            }
+            foreach ($thisMonthBookings as $thisMonthBooking) {
+                $thisMonthSavingPrice += $thisMonthBooking->food->price_difference;
+            }
+            
+            $history -> this_month_saving_price =  $thisMonthSavingPrice;
+            $history -> saving_price = $savingPrice;
+            $history -> count = $totalCount;
+            $history -> this_month_count = $thisMonthCount;
+            $history -> user_id = $booking->user_id;
+            
+            $history -> save();
+            DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -136,11 +104,18 @@ class BookingController extends Controller
      */
     public function destroy(Food $food)
     {
+        DB::beginTransaction();
+        try {
+            $booking = Booking::where('user_id', Auth::id())->where('food_id', $food->id)->first();
+            $booking -> delete();
 
-        $booking = Booking::where('user_id', Auth::id())->where('food_id', $food->id)->first();
+            $food -> coupon ++ ;
+            $food -> save(); 
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+        } 
 
-        $booking -> delete();
-        
         return redirect()->route('foods.show', $food);
     }
 }
