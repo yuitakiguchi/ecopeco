@@ -57,6 +57,11 @@
 @else
 <div class="container">
   <a href="{{ route('foods.create') }}">新規投稿</a>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      @include('layouts.flash')
+    </div>
+  </div>
   @foreach ($companyFoods  as $companyFood)
   <div class="row justify-content-center">
     <div class="col-md-8">

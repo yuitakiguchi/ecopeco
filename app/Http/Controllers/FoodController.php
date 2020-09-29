@@ -55,7 +55,7 @@ class FoodController extends Controller
     public function store(FoodRequest $request)
     {
         if ($request->price < $request->discount_price) {
-            return back()->with('message','割引価格以上の値段を定価にご入力ください');
+            return back()->with('error','割引価格以上の値段を定価にご入力ください。');
         }
 
         $food = new Food;
@@ -84,7 +84,7 @@ class FoodController extends Controller
 
         $food->save();
         
-        return redirect()->route('foods.index');
+        return redirect()->route('foods.index')->with('message', '商品の投稿が完了しました。');
     }
 
     /**
@@ -142,8 +142,8 @@ class FoodController extends Controller
         $food -> coupon = $request -> coupon;
         
         $food -> save();
-        
-        
+
+        $request->session()->flash('message', '商品情報を更新しました。'); 
         
         return view('foods.show', compact('food'));
 
@@ -159,6 +159,6 @@ class FoodController extends Controller
     {
         $food = Food::find($id);
         $food -> delete();
-        return redirect()->route('foods.index');
+        return redirect()->route('foods.index')->with('error', '商品を削除しました。');
     }
 }

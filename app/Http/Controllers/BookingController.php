@@ -36,9 +36,10 @@ class BookingController extends Controller
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->route('foods.show', $food)->with('error', 'クーポンを使用することができません。');
         }
 
-        return redirect()->route('foods.show', $food);
+        return redirect()->route('foods.show', $food)->with('message', 'クーポンを' . $booking->count . '枚使用しました。');
     }
 
     /**
@@ -55,8 +56,10 @@ class BookingController extends Controller
             $booking = Booking::find($id);
             if ($booking -> is_sold === 0){
                 $booking -> is_sold = 1;
+                $message = '購入済みに変更しました。';
             } else {
                 $booking -> is_sold = 0;
+                $message = '予約中に変更しました。';
             }
             $booking -> save();
             
@@ -93,7 +96,7 @@ class BookingController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
         }
-        return redirect()->route('foods.index');
+        return redirect()->route('foods.index')->with('message', $message);
         
     }
 
@@ -115,8 +118,9 @@ class BookingController extends Controller
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->route('foods.show', $food)->with('error', '取り消せませんでした。');
         } 
 
-        return redirect()->route('foods.show', $food);
+        return redirect()->route('foods.show', $food)->with('message', 'クーポンの利用を取り消しました。');
     }
 }

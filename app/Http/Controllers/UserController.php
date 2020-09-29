@@ -87,9 +87,8 @@ class UserController extends Controller
 
         $user -> save();
         //user更新終了
- 
 
-        return redirect()->route('users.edit',$user->id);
+        return redirect()->route('users.edit',$user->id)->with('message', 'ユーザー情報を更新しました');
     }
 
     /**

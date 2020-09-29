@@ -135,7 +135,7 @@ class CompanyController extends Controller
             // $user->areas()->attach($area->id);
             // users() method → どこに定義されているか。 
     }
-    return redirect()->route('users.edit',$user->id);
+    return redirect()->route('users.edit',$user->id)->with('message', 'ユーザー情報を更新しました。');
 }
 
     /**
