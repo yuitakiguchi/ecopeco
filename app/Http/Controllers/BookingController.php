@@ -19,11 +19,11 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Food $food)
+    public function store(Request $request, Food $food)
     {
         DB::beginTransaction();
         try {
-            $food -> coupon -- ;
+            $food -> coupon -= $request->count;
             $food -> save();
             
             $booking = new Booking;
@@ -31,6 +31,7 @@ class BookingController extends Controller
             $booking->is_sold = 0;
             $booking->food_id = $food->id;
             $booking->user_id = Auth::id();
+            $booking->count = $request->count;
             $booking->save();
             DB::commit();
         } catch (\Exception $e) {
@@ -107,10 +108,10 @@ class BookingController extends Controller
         DB::beginTransaction();
         try {
             $booking = Booking::where('user_id', Auth::id())->where('food_id', $food->id)->first();
+            $food -> coupon += $booking->count ;
+            $food -> save(); 
             $booking -> delete();
 
-            $food -> coupon ++ ;
-            $food -> save(); 
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
