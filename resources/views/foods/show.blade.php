@@ -58,6 +58,12 @@
             @else
                 <form action="{{ route('reservations', $food) }}" method="POST">
                     @csrf
+                    <p>購入個数</p>
+                    <select name="count">
+                        @for ($i = 1; $i <= $food->coupon; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
                     <input type="submit" value="クーポンを使用する" class="btn btn-primary btn-lg btn-block">
                 </form>
             @endif

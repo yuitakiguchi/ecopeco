@@ -18,6 +18,7 @@ class CreateBookingsTable extends Migration
             $table->boolean('is_sold');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('food_id');
+            $table->unsignedBigInteger('count');
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
