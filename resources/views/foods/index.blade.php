@@ -77,7 +77,7 @@
                 @foreach ($companyFood->bookings as $booking)
                 <div class="card col-md-8 text-center" >
                   <div class="card-body">
-                    <p class="card-text">{{ $booking->user->name }}<br>　クーポン利用1 枚<br>　予約時刻{{ $booking->created_at }}</p>
+                    <p class="card-text">{{ $booking->user->name }}<br>　クーポン利用{{ $booking->count }}枚<br>　予約時刻{{ $booking->created_at }}</p>
                   </div>
                 </div>
                         <div class="col-md-4">
@@ -103,5 +103,5 @@
   @endforeach
   @endif
 </div>
-
 @endsection
+
