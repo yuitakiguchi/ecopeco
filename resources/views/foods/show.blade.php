@@ -7,7 +7,7 @@
         <div class="col-md-8">
             @include('layouts.flash')
             <div class="card-header">
-                <h5>〇〇店</h5>
+                <h5>{{ $food->user->name }}</h5>
             </div>
             <div class="row justify-content-center">
                 <div class="card-body">
@@ -37,7 +37,7 @@
         <div class="col-md-8">
             @include('layouts.flash')
             <div class="card-header">
-                <h5>〇〇店</h5>
+                <h5>{{ $food->user->name }}</h5>
             </div>
             <div class="row justify-content-center">
                 <div class="card-body">
@@ -113,6 +113,27 @@
                         frameborder='0'>
                     </iframe>
                 </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <h5>{{ $food->user->name }}その他クーポン</h5>
+                @foreach ($food->user->foods as $companyFood)
+                @if($companyFood->id !== $food->id)
+                <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
+                    <a href="{{ route('foods.show',$companyFood->id) }}">
+                        <div class="card">
+                            <img src="{{ $companyFood->image_name }}" class="card-img-top" alt="商品画像">
+                            <div class="card-body">
+                                <h5 class="card-title">商品名：{{ $companyFood->name }}</h5>
+                                <p class="card-text">引取時間：{{ $companyFood->trading_time }}</p>
+                                <p class="card-text">{{ $companyFood->price }}円→{{ $companyFood->discount_price }}円</p>
+                                <p class="card-text">クーポン{{ $companyFood->coupon }}枚</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endif
+                @endforeach
             </div>
         </div>
     </div>
