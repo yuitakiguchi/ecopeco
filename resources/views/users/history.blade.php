@@ -18,6 +18,7 @@
               </div>
               <div class="col-md-4">
                 <a class="btn btn-primary" href="{{ route('foods.edit', $purchaseHistories->id) }}">商品の編集</a>
+                <a class="btn btn-primary" href="{{ route('foods.duplicate', $purchaseHistories->id) }}">商品を複製して投稿</a>
               </div>
             </div>
           </div>

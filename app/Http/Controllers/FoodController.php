@@ -70,6 +70,7 @@ class FoodController extends Controller
 
         
 
+        // dd($request);
         if ($image = $request->file('image')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
@@ -81,6 +82,9 @@ class FoodController extends Controller
             $food->image_name = $logoUrl;
             $food->public_id  = $publicId;
         }
+
+        $food->image_name = $request->image_name;
+        $food->public_id  = $request->public_id;
 
         $food->save();
         
@@ -161,4 +165,13 @@ class FoodController extends Controller
         $food -> delete();
         return redirect()->route('foods.index')->with('error', '商品を削除しました。');
     }
+
+    public function duplicate($id)
+    {
+        $food = Food::find($id);
+
+        return view('foods.duplicate', compact('food'));
+    }
 }
+
+
