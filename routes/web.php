@@ -23,16 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('foods', 'FoodController');
 
-Route::resource('authorities', 'AuthorityController');
-
-Route::resource('areas', 'AreaController');
-
 Route::resource('users', 'UserController');
 Route::get('users/{user}/histories', 'UserController@history')->name('users.histories');
 
 Route::resource('bookings', 'BookingController');
-
-Route::resource('histories', 'HistoryController');
 
 Route::resource('companies', 'CompanyController');
 
@@ -41,3 +35,5 @@ Route::post('foods/{food}/unreservations', 'BookingController@destroy')->name('u
 
 Route::post('foods/{food}/purchase', 'BookingController@store')->name('purchase');
 Route::post('foods/{food}/unpurchase', 'BookingController@destroy')->name('unpurchase');
+
+Route::get('foods/{food}/duplicate', 'FoodController@duplicate')->name('foods.duplicate');
