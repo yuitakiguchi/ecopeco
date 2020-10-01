@@ -24,6 +24,7 @@ class CreateFoodsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->time('trading_time');
+            $table->date('trading_date');
             $table->integer('coupon');
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

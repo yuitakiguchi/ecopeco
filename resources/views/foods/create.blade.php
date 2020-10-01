@@ -30,6 +30,10 @@
         <input type="text" name="name">
       </div>
       <div class="col-12 mb-4">
+        <p>取引日</p>
+        <input type="date" name="trading_date" max="9999-12-31">
+      </div>
+      <div class="col-12 mb-4">
         <p>取引終了時間</p>
         <input type="time" name="trading_time">
       </div>
