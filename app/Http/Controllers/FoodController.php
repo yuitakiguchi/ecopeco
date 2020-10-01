@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use App\Http\Requests\FoodRequest;
+use Carbon\Carbon;
 use App\Food;
 use App\Area;
 use Auth;
@@ -30,7 +31,7 @@ class FoodController extends Controller
         }
         
         $area = $query->first();
-        $foods = Food::latest()->get();
+        $foods = Food::latest()->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->get();
         $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
         return view('foods.index', compact('foods','companyFoods', 'area', 'keyword'));
 
