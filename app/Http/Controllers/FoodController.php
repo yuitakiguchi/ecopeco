@@ -32,7 +32,7 @@ class FoodController extends Controller
         
         $area = $query->first();
         $foods = Food::latest()->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->get();
-        $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
+        $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->latest()->get();
         return view('foods.index', compact('foods','companyFoods', 'area', 'keyword'));
 
     }
@@ -125,7 +125,10 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        $food = Food::find($id);
+        // if(){
+        //     return redirect()->route('foods.histories')->with('message', '商品の投稿が完了しました。');
+        // }
+        $food = Food::where('user_id', Auth::id())->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->find($id);
         return view('foods.edit', compact('food'));
     }
 

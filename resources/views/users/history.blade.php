@@ -14,10 +14,12 @@
               </div>
               <div class="col-md-4">
                 <p class="card-text">商品名：{{ $purchaseHistories->name }}</p>
-                <p class="card-text">{{ \Carbon\Carbon::parse($purchaseHistories->updated_at)->format("Y年n月j日") }}</p>
+                <p class="card-text">商品投稿日：{{ \Carbon\Carbon::parse($purchaseHistories->updated_at)->format("Y年n月j日") }}</p>
               </div>
               <div class="col-md-4">
-                <a class="btn btn-primary" href="{{ route('foods.edit', $purchaseHistories->id) }}">商品の編集</a>
+                @if($purchaseHistories->trading_date >= \Carbon\Carbon::today() && $purchaseHistories->trading_time >= \Carbon\Carbon::now()->toTimeString())
+                  <a class="btn btn-primary" href="{{ route('foods.edit', $purchaseHistories->id) }}">商品の編集</a>
+                @endif
                 <a class="btn btn-primary" href="{{ route('foods.duplicate', $purchaseHistories->id) }}">商品を複製して投稿</a>
               </div>
             </div>

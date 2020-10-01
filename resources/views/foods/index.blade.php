@@ -64,6 +64,7 @@
       @include('layouts.flash')
     </div>
   </div>
+  <h5>出品中商品一覧</h5>
   @foreach ($companyFoods  as $companyFood)
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -106,4 +107,5 @@
   @endif
 </div>
 @endsection
+
 
