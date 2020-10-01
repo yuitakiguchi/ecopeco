@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CompanyRequest;
-// use JD\Cloudder\Facades\Cloudder;
 use App\Company;
 use App\User;
 use App\Area;
