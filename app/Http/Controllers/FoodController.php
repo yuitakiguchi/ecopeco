@@ -125,10 +125,13 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        // if(){
-        //     return redirect()->route('foods.histories')->with('message', '商品の投稿が完了しました。');
-        // }
+        
         $food = Food::where('user_id', Auth::id())->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->find($id);
+
+            if(!$food){
+                return abort(404);
+            }
+
         return view('foods.edit', compact('food'));
     }
 
@@ -144,6 +147,9 @@ class FoodController extends Controller
         
         $food = Food::find($id);
 
+        if(Auth::id() !== $food->user_id){
+            return abort(404);
+        }
         
         $food -> name = $request -> name;
         $food -> trading_time = $request -> trading_time;
@@ -169,6 +175,11 @@ class FoodController extends Controller
     public function destroy($id)
     {
         $food = Food::find($id);
+
+        if(Auth::id() !== $food->user_id){
+            return abort(404);
+        }
+        
         $food -> delete();
         return redirect()->route('foods.index')->with('error', '商品を削除しました。');
     }

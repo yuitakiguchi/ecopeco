@@ -65,6 +65,11 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+
+        if(Auth::id() !== $user->id){
+            return abort(404);
+        }
+
         $areas = Area::all();
         // areasに何が入っているといいか。→DBに入っているエリア全て。
         return view('users.edit', compact('user','areas'));
@@ -82,6 +87,11 @@ class UserController extends Controller
     {
         //userを更新している。
         $user = User::find($id);
+
+        if(Auth::id() !== $user->id){
+            return abort(404);
+        }
+
         $user -> name = $request -> name;
         $user -> email = $request -> email;
 

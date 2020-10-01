@@ -106,9 +106,6 @@ class CompanyController extends Controller
             $area->users()->detach(Auth::id());
             
         }
-        // $area->users()->detach(Auth::id()); 
-        // undifined variable area
-
         
         foreach($request->areas as $areaName){
             $area = Area::where('name', $areaName)->first();
