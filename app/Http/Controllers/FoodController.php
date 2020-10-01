@@ -62,6 +62,7 @@ class FoodController extends Controller
 
         $food->name = $request->name;
         $food->trading_time = $request->trading_time;
+        $food->trading_date = $request->trading_date;
         $food->price = $request->price;
         $food->discount_price = $request->discount_price;
         $food->coupon = $request->coupon;
@@ -142,6 +143,7 @@ class FoodController extends Controller
         
         $food -> name = $request -> name;
         $food -> trading_time = $request -> trading_time;
+        $food -> trading_date = $request -> trading_date;
         $food -> price = $request -> price;
         $food -> discount_price = $request -> discount_price;
         $food -> coupon = $request -> coupon;

@@ -17,6 +17,7 @@
                 </div>
                     <div class="col-md-4">
                         <p class="card-text">商品名：{{ $food->name }}</p>
+                        <p class="card-text">取引日：{{ $food->trading_date }}</p>
                         <p class="card-text">引取終了時間：{{ $food->trading_time }}</p>
                         <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
                         <p class="card-text">クーポン：{{ $food->coupon }}枚</p>
@@ -47,6 +48,7 @@
                 </div>
                     <div class="col-md-4">
                         <p class="card-text">商品名：{{ $food->name }}</p>
+                        <p class="card-text">引取日：{{ $food->trading_date }}</p>
                         <p class="card-text">引取終了時間：{{ $food->trading_time }}</p>
                         <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
                         <p class="card-text">クーポン：{{ $food->coupon }}枚</p>
@@ -125,6 +127,7 @@
                             <img src="{{ $companyFood->image_name }}" class="card-img-top" alt="商品画像">
                             <div class="card-body">
                                 <h5 class="card-title">商品名：{{ $companyFood->name }}</h5>
+                                <p class="card-text">引取日：{{ $companyFood->trading_date }}</p>
                                 <p class="card-text">引取時間：{{ $companyFood->trading_time }}</p>
                                 <p class="card-text">{{ $companyFood->price }}円→{{ $companyFood->discount_price }}円</p>
                                 <p class="card-text">クーポン{{ $companyFood->coupon }}枚</p>
