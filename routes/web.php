@@ -37,3 +37,7 @@ Route::post('foods/{food}/purchase', 'BookingController@store')->name('purchase'
 Route::post('foods/{food}/unpurchase', 'BookingController@destroy')->name('unpurchase');
 
 Route::get('foods/{food}/duplicate', 'FoodController@duplicate')->name('foods.duplicate');
+
+Route::get('/contact', function () {
+    return view('contacts.contact');
+});
