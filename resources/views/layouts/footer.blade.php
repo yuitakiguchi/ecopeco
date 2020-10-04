@@ -1,5 +1,5 @@
 
-<footer class="fixed-bottom py-4">
+<footer class="py-4">
   <div class="container">
     <div class="row text-center">
       <div class="col-xs-6 col-md-4 font-weight-bold px-0">

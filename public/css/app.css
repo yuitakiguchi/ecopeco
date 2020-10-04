@@ -10899,6 +10899,10 @@ a.text-dark:focus {
   }
 }
 
+main {
+  min-height: 566px;
+}
+
 footer {
   background: rgba(122, 216, 2, 0.7);
   font-size: medium;
