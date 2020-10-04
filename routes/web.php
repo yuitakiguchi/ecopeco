@@ -40,4 +40,4 @@ Route::get('foods/{food}/duplicate', 'FoodController@duplicate')->name('foods.du
 
 Route::get('/contact', function () {
     return view('contacts.contact');
-});
+})->name('contacts.contact');
