@@ -57,26 +57,22 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('users.histories', Auth::user()->id )}}">
+                                        {{ __('マイページ') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('users.edit', Auth::user()->id )}}" >
+                                        {{ __('登録情報編集') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('ログアウト') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('users.edit', Auth::user()->id )}}" class="nav-link">
-                                    {{ __('Profile') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('users.histories', Auth::user()->id )}}" class="nav-link">
-                                    {{ __('Mypage') }}
-                                </a>
                             </li>
                         @endguest
                     </ul>
@@ -88,5 +84,8 @@
             @yield('content')
         </main>
     </div>
+        @include('layouts.footer')
 </body>
 </html>
+
+
