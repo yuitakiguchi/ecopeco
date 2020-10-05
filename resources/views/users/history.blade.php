@@ -38,10 +38,17 @@
           <div class="col-md-8">
             <div class="card">
               <div class="card-body">
-                <p>今月の利用回数{{ Auth::user() -> history -> count }}回</p>
-                <p>総合利用回数{{ Auth::user() -> history -> this_month_count }}回</p>
-                <p>今月の節約金{{ Auth::user() -> history -> this_month_saving_price }}円</p>
-                <p>総合節約金{{ Auth::user() -> history -> saving_price }}円</p>
+                @isset(Auth::user() -> history)
+                  <p>今月の利用回数{{ Auth::user() -> history -> count }}回</p>
+                  <p>総合利用回数{{ Auth::user() -> history -> this_month_count }}回</p>
+                  <p>今月の節約金{{ Auth::user() -> history -> this_month_saving_price }}円</p>
+                  <p>総合節約金{{ Auth::user() -> history -> saving_price }}円</p>
+                @else
+                  <p>今月の利用回数 0 回</p>
+                  <p>総合利用回数 0 回</p>
+                  <p>今月の節約金 0 円</p>
+                  <p>総合節約金 0 円</p>
+                @endisset
               </div>
             </div>
           </div>

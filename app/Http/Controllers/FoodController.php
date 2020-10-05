@@ -106,14 +106,13 @@ class FoodController extends Controller
         $id = Auth::id();
         $booking = $food->bookings->where('user_id', Auth::id())->first();
         
-
         if (empty($booking)) {
             $isReserved = false;
         } else {
             $isReserved = true;
         }
-
-        $companyFoods = Food::where('user_id', Auth::id())->latest()->get();
+        // 今日以降で今の時間以降で$foodを出品している企業の他の食品を検索する
+        $companyFoods = Food::where('user_id', $food->user_id)->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->latest()->get();
         return view('foods.show', compact('food','companyFoods','isReserved'));
     }
 
@@ -128,10 +127,9 @@ class FoodController extends Controller
         
         $food = Food::where('user_id', Auth::id())->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->find($id);
 
-            if(!$food){
-                return abort(404);
-            }
-
+        if(!$food){
+            return abort(403);
+        }
         return view('foods.edit', compact('food'));
     }
 
@@ -148,7 +146,7 @@ class FoodController extends Controller
         $food = Food::find($id);
 
         if(Auth::id() !== $food->user_id){
-            return abort(404);
+            return abort(403);
         }
         
         $food -> name = $request -> name;
@@ -177,7 +175,7 @@ class FoodController extends Controller
         $food = Food::find($id);
 
         if(Auth::id() !== $food->user_id){
-            return abort(404);
+            return abort(403);
         }
         
         $food -> delete();

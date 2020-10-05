@@ -2,26 +2,13 @@
 
 @section('content')
 <div class="container">
-  @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
-  @if(session()->has('message'))
-    <div class="alert alert-info mb-3">
-      {{session('message')}}
-    </div>
-  @endif
+  @include('layouts.flash')
   <form action="{{ route('foods.store') }}" method="POST" enctype="multipart/form-data">
   {{csrf_field()}}
     <div class="row justify-content-center">
         <div class="form-group">
           <label for="exampleFormControlFile1">商品画像</label>
-          <input type="file" class="form-control-file" id="image" name="image">
+          <input required type="file" class="form-control-file" id="image" name="image">
         </div>
     </div>
     <div class="row justify-content-center text-center">
