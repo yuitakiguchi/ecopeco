@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if (Auth::user()->authority_id === 1)
+@if (Auth::user()->authority_id === \App\User::AUTHORITY_COMPANY)
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -86,8 +86,7 @@
                                 <th>最寄駅</th>
                                 <td>
                                     @foreach($food->user->areas as $area)
-                                    {{ $area->name }}
-                                    
+                                        {{ $area->name }}
                                     @endforeach
                                 </td>
                             </tr>
@@ -116,27 +115,24 @@
                     </iframe>
                 </div>
             </div>
-
             <div class="row justify-content-center">
                 <h5>{{ $food->user->name }}その他クーポン</h5>
-                    @foreach ($food->user->foods as $companyFood)
-                        @if($companyFood->id !== $food->id && $companyFood->trading_date >= \Carbon\Carbon::today() && $companyFood->trading_time >= \Carbon\Carbon::now()->toTimeString())
-                            <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
-                                <a href="{{ route('foods.show',$companyFood->id) }}">
-                                    <div class="card">
-                                        <img src="{{ $companyFood->image_name }}" class="card-img-top" alt="商品画像">
-                                        <div class="card-body">
-                                            <h5 class="card-title">商品名：{{ $companyFood->name }}</h5>
-                                            <p class="card-text">引取日：{{ $companyFood->trading_date }}</p>
-                                            <p class="card-text">引取時間：{{ $companyFood->trading_time }}</p>
-                                            <p class="card-text">{{ $companyFood->price }}円→{{ $companyFood->discount_price }}円</p>
-                                            <p class="card-text">クーポン{{ $companyFood->coupon }}枚</p>
-                                        </div>
-                                    </div>
-                                </a>
+                @foreach ($companyFoods as $companyFood)
+                    <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
+                        <a href="{{ route('foods.show',$companyFood->id) }}">
+                            <div class="card">
+                                <img src="{{ $companyFood->image_name }}" class="card-img-top" alt="商品画像">
+                                <div class="card-body">
+                                    <h5 class="card-title">商品名：{{ $companyFood->name }}</h5>
+                                    <p class="card-text">引取日：{{ $companyFood->trading_date }}</p>
+                                    <p class="card-text">引取時間：{{ $companyFood->trading_time }}</p>
+                                    <p class="card-text">{{ $companyFood->price }}円→{{ $companyFood->discount_price }}円</p>
+                                    <p class="card-text">クーポン{{ $companyFood->coupon }}枚</p>
+                                </div>
                             </div>
-                        @endif
-                    @endforeach
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

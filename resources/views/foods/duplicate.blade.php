@@ -2,29 +2,16 @@
 
 @section('content')
 <div class="container">
-  @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
-  @if(session()->has('message'))
-    <div class="alert alert-info mb-3">
-      {{session('message')}}
-    </div>
-  @endif
+  @include('layouts.flash')
   <form action="{{ route('foods.store') }}" method="POST" enctype="multipart/form-data">
   {{csrf_field()}}
     <div class="row justify-content-center">
-        <div class="form-group">
-          <p>商品画像</p>
-          <img src="{{ $food->image_name }}" >
-          <input type="hidden" name="image_name" value="{{ $food->image_name }}">
-          <input type="hidden" name="public_id" value="{{ $food->public_id }}">
-        </div>
+      <div class="form-group">
+        <p>商品画像</p>
+        <img src="{{ $food->image_name }}" >
+        <input type="hidden" name="image_name" value="{{ $food->image_name }}">
+        <input type="hidden" name="public_id" value="{{ $food->public_id }}">
+      </div>
     </div>
     <div class="row justify-content-center text-center">
       <div class="col-12 mb-4">

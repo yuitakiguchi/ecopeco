@@ -1,7 +1,7 @@
 @extends('layouts.app')　
 
 @section('content')
-@if (Auth::user()->authority_id === 2)
+@if (Auth::user()->authority_id === \App\User::AUTHORITY_USER)
 <div class="container">
   <form action="{{ url('/foods') }}" method="GET">
     <input type="text" name="keyword" placeholder="地域を検索する" value="{{ $keyword }}" >
@@ -9,7 +9,6 @@
   </form>
   @if ($keyword)
     @if($area->count())
-      
       <p>検索結果</p>
       <div class="row mb-5 justify-content-center">
         @foreach ($area->users as $user)
@@ -49,7 +48,6 @@
               <p class="card-text">クーポン{{ $food->coupon }}枚</p>
             </div>
           </div>
-
         </a>
       </div>
       @endforeach
@@ -78,22 +76,22 @@
             <div class="col-md-6">
               <div class="row justify-content-center">
                 @foreach ($companyFood->bookings as $booking)
-                <div class="card col-md-8 text-center" >
-                  <div class="card-body">
-                    <p class="card-text">{{ $booking->user->name }}<br>　クーポン利用{{ $booking->count }}枚<br>　予約時刻{{ $booking->created_at }}</p>
+                  <div class="card col-md-8 text-center" >
+                    <div class="card-body">
+                      <p class="card-text">{{ $booking->user->name }}<br>　クーポン利用{{ $booking->count }}枚<br>　予約時刻{{ $booking->created_at }}</p>
+                    </div>
                   </div>
-                </div>
-                        <div class="col-md-4">
-                          <form action="{{ route('bookings.update', $booking) }}" method="POST">
-                            @method('PATCH')
-                              @csrf
-                              @if($booking -> is_sold === 0)
-                              <input type="submit" value="予約中" class="btn btn-primary ">
-                              @else
-                              <input type="submit" value="購入済み" class="btn btn-danger ">
-                              @endif
-                          </form>
-                        </div>
+                  <div class="col-md-4">
+                    <form action="{{ route('bookings.update', $booking) }}" method="POST">
+                      @method('PATCH')
+                        @csrf
+                        @if($booking -> is_sold === 0)
+                          <input type="submit" value="予約中" class="btn btn-primary ">
+                        @else
+                          <input type="submit" value="購入済み" class="btn btn-danger ">
+                        @endif
+                    </form>
+                  </div>
                 @endforeach
               </div>
             </div>

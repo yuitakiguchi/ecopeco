@@ -25,7 +25,7 @@ class CompanyRequest extends FormRequest
     {
         return [
             'name'    => 'required|max:25',
-            'email'   => 'required',
+            'email'   => 'required|unique:users,email',
         ];
     }
 
@@ -33,8 +33,9 @@ class CompanyRequest extends FormRequest
     {
         return [
             'name.required'          => 'ニックネームは必須です。',
-	        'name.max'               => 'ニックネームは25文字以内で記入してください。',
+            'name.max'               => 'ニックネームは25文字以内で記入してください。',
             'email.required'         => 'メールアドレスは必須です。',
+            'email.unique'           => 'このメールアドレスはすでに使用されています'
         ];
     }
 }

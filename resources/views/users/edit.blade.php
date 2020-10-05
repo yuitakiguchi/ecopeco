@@ -1,6 +1,6 @@
 @extends('layouts.app')　
 @section('content')
-@if (Auth::user()->authority_id === 1)
+@if (Auth::user()->authority_id === \App\User::AUTHORITY_COMPANY)
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -75,7 +75,6 @@
                 {{csrf_field()}}
                 {{method_field('PATCH')}}
                 <div class="card text-center">
-
                     <div class="card-name">
                         <p>名前</p>
                         <input type="text" name="name" value="{{ $user->name }}">
@@ -85,15 +84,15 @@
                         <p>メールアドレス</p>
                         <input type="text" name="email" value="{{ $user->email }}">
                     </div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">更新</button>
-                    </div>
-
+                </div>
+                
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">更新</button>
                 </div>
             </form>
+        </div>
     </div>
 </div>
 @endif
 @endsection
+

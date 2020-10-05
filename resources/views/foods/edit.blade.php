@@ -2,20 +2,7 @@
 
 @section('content')
 <div class="container">
-  @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
-  @if(session()->has('message'))
-    <div class="alert alert-info mb-3">
-      {{session('message')}}
-    </div>
-  @endif
+  @include('layouts.flash')
   <form action="{{ route('foods.update', $food->id) }}" method="POST" enctype="multipart/form-data">
   {{csrf_field()}}
   {{method_field('PATCH')}}
