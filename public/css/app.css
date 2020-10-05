@@ -10900,7 +10900,7 @@ a.text-dark:focus {
 }
 
 main {
-  min-height: 566px;
+  min-height: 615px;
 }
 
 footer {
@@ -10926,5 +10926,129 @@ footer .row a {
   text-decoration: none;
   display: block;
   text-align: right;
+}
+
+.user {
+  background-color: #F4FAEC;
+}
+
+.user .kitchenware {
+  width: 200px;
+  height: 200px;
+  z-index: 6;
+  float: right;
+}
+
+.user .col-md-6 .reaction {
+  width: 110px;
+  height: 110px;
+  z-index: 5;
+  position: relative;
+  top: 65px;
+  left: 20px;
+}
+
+.user .col-md-6 h1 {
+  color: #7B3C15;
+  text-align: center;
+  font-size: 90px;
+}
+
+.user .col-md-6 p {
+  color: #6A8B41;
+  text-align: center;
+  font-size: 25px;
+}
+
+.user .col-md-6 .card-body {
+  z-index: 4;
+}
+
+.user .col-md-6 .card-body .col-form-label {
+  color: #6A8B41;
+}
+
+.user .col-md-6 .card-body .btn {
+  background-color: #84644D;
+  border-color: #84644D;
+  padding: 5px 60px;
+  font-size: 20px;
+}
+
+.user .col-md-6 .card-body .btn:hover {
+  background-color: #84644D;
+  border-color: #84644D;
+  opacity: 0.7;
+}
+
+.user .col-md-6 .card-body .company-sign-up {
+  text-align: center;
+  text-align: center;
+  display: block;
+  padding-top: 80px;
+}
+
+.user .col-md-6 .card-body .company-sign-up a {
+  color: #6A8B41;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.company {
+  background-color: #EBE7DB;
+}
+
+.company h1 {
+  color: #7B3C15;
+  text-align: center;
+  font-size: 90px;
+  margin-top: 25px;
+}
+
+.company p {
+  color: #6A8B41;
+  text-align: center;
+  font-size: 25px;
+}
+
+.company .reaction {
+  width: 110px;
+  height: 110px;
+}
+
+.company .kitchenware {
+  width: 200px;
+  height: 200px;
+  justify-content: flex-end;
+}
+
+.company .card-body .col-form-label {
+  color: #6A8B41;
+}
+
+.company .card-body .btn {
+  background-color: #84644D;
+  border-color: #84644D;
+  padding: 5px 70px;
+  font-size: 20px;
+}
+
+.company .card-body .btn:hover {
+  background-color: #84644D;
+  border-color: #84644D;
+  opacity: 0.7;
+}
+
+.company .card-body .company-sign-up {
+  text-align: center;
+  text-align: center;
+  display: block;
+  padding-top: 30px;
+}
+
+.company .card-body .company-sign-up a {
+  color: #6A8B41;
+  font-weight: bold;
+  font-size: 20px;
 }
 
