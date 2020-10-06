@@ -2,13 +2,13 @@
 
 @section('content')
 <section class="page-section text-center" id="contact">
-    <img class="contact2 d-none d-xl-inline-block" src="image/contact2.png">
-    <img class="contact1 d-none d-xl-inline-block" src="image/contact1.png">
+    <img class="contact2 d-none d-xl-inline-block" src="images/contact2.png">
+    <img class="contact1 d-none d-xl-inline-block" src="images/contact1.png">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8">
           <h1>Contact</h1>
-          <img class="contact-image d-none d-xl-inline-block" src="image/sign-up1.png">
+          <img class="contact-image d-none d-xl-inline-block" src="images/sign-up1.png">
         {{-- </div> --}}
       
         {{-- <div class="col-lg-12" id="formWrapper"> --}}
