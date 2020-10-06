@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="company">
-    <img class="decoration-top d-none  d-xl-inline-block" src="image/sign-up3.png">
-    <img class="decoration-under d-none  d-xl-inline-block" src="image/sign-up4.png">
+    <img class="decoration-top d-none  d-xl-inline-block" src="images/sign-up3.png">
+    <img class="decoration-under d-none  d-xl-inline-block" src="images/sign-up4.png">
     <div class="container">
         <div class="row justify-content-center">
             <h1>sign up business person</h1>
             <div class="col-md-6">
-                <img class="reaction d-none  d-xl-inline-block" src="image/sign-up1.png">
+                <img class="reaction d-none  d-xl-inline-block" src="images/sign-up1.png">
                 <p>Welcome to ecopeco!</p>
 
                 <div class="card-body">

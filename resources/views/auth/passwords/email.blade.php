@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="email">
-    <img class="email1 d-none d-xl-inline-block" src="../image/email1.png">
-    <img class="email2 d-none d-xl-inline-block" src="../image/email2.png">
+    <img class="email1 d-none d-xl-inline-block" src="../images/email1.png">
+    <img class="email2 d-none d-xl-inline-block" src="../images/email2.png">
     <div class="container">
         <div class="row justify-content-center">
             <h1>reset password</h1>
             <div class="col-md-8">
-                <img class="email-image d-none d-xl-inline-block" src="../image/sign-up1.png">
+                <img class="email-image d-none d-xl-inline-block" src="../images/sign-up1.png">
 
                 <div class="card-body">
                     @if (session('status'))

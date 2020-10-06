@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="user">
-    <img class="kitchenware d-none d-xl-inline-block" src="image/sign-up2.png">
+    <img class="kitchenware d-none d-xl-inline-block" src="images/sign-up2.png">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <img class="reaction d-none  d-xl-inline-block" src="image/sign-up1.png">
+                <img class="reaction d-none  d-xl-inline-block" src="images/sign-up1.png">
                 <h1>sign up</h1>
                 <p>Welcome to ecopeco!</p>
 
