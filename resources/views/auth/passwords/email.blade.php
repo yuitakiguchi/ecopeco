@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('パスワードを変更する') }}</div>
+<div class="email">
+    <img class="email1 d-none d-xl-inline-block" src="../image/email1.png">
+    <img class="email2 d-none d-xl-inline-block" src="../image/email2.png">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1>reset password</h1>
+            <div class="col-md-8">
+                <img class="email-image d-none d-xl-inline-block" src="../image/sign-up1.png">
 
                 <div class="card-body">
                     @if (session('status'))

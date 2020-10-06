@@ -11060,7 +11060,6 @@ footer .row a {
   position: absolute;
   top: 55px;
   left: 1130px;
-  float: right;
 }
 
 .login-ecopeco .col-md-8 {
@@ -11156,6 +11155,62 @@ footer .row a {
 }
 
 #contact .btn:hover {
+  background-color: #6A8B41;
+  border-color: #6A8B41;
+  opacity: 0.7;
+}
+
+.email {
+  background-color: #EBE7DB;
+}
+
+.email h1 {
+  color: #7B3C15;
+  text-align: center;
+  font-size: 90px;
+  padding-top: 100px;
+}
+
+.email .email1 {
+  width: 300px;
+  height: 524px;
+  z-index: 10;
+  position: absolute;
+  top: 112px;
+  left: 0px;
+}
+
+.email .email2 {
+  width: 310px;
+  height: 255px;
+  z-index: 10;
+  position: absolute;
+  top: 55px;
+  left: 1130px;
+}
+
+.email .email-image {
+  width: 110px;
+  height: 110px;
+  z-index: 5;
+  position: relative;
+  top: -160px;
+  left: -50px;
+}
+
+.email .col-form-label {
+  color: #6A8B41;
+}
+
+.email .btn {
+  margin: 80px 0;
+  background-color: #6A8B41;
+  border-color: #6A8B41;
+  padding: 5px 60px;
+  font-size: 20px;
+}
+
+.email .btn:hover {
   background-color: #6A8B41;
   border-color: #6A8B41;
   opacity: 0.7;
