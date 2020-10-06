@@ -56,8 +56,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('パスワード確認') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('パスワード確認') }}</label>
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="new-password"
@@ -75,10 +74,8 @@
                         <div class="company-sign-up">
                             <a href="{{ route('registercompany') }}">事業者様はこちら</a>
                         </div>
-
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
