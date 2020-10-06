@@ -10939,7 +10939,7 @@ footer .row a {
   float: right;
 }
 
-.user .col-md-6 .reaction {
+.user .reaction {
   width: 110px;
   height: 110px;
   z-index: 5;
@@ -10948,47 +10948,43 @@ footer .row a {
   left: 20px;
 }
 
-.user .col-md-6 h1 {
+.user h1 {
   color: #7B3C15;
   text-align: center;
   font-size: 90px;
 }
 
-.user .col-md-6 p {
+.user p {
   color: #6A8B41;
   text-align: center;
   font-size: 25px;
 }
 
-.user .col-md-6 .card-body {
-  z-index: 4;
-}
-
-.user .col-md-6 .card-body .col-form-label {
+.user .card-body .col-form-label {
   color: #6A8B41;
 }
 
-.user .col-md-6 .card-body .btn {
+.user .card-body .btn {
   background-color: #84644D;
   border-color: #84644D;
   padding: 5px 60px;
   font-size: 20px;
 }
 
-.user .col-md-6 .card-body .btn:hover {
+.user .card-body .btn:hover {
   background-color: #84644D;
   border-color: #84644D;
   opacity: 0.7;
 }
 
-.user .col-md-6 .card-body .company-sign-up {
+.user .card-body .company-sign-up {
   text-align: center;
   text-align: center;
   display: block;
   padding-top: 80px;
 }
 
-.user .col-md-6 .card-body .company-sign-up a {
+.user .card-body .company-sign-up a {
   color: #6A8B41;
   font-weight: bold;
   font-size: 20px;
@@ -10998,11 +10994,27 @@ footer .row a {
   background-color: #EBE7DB;
 }
 
+.company .decoration-top {
+  width: 200px;
+  height: 200px;
+  z-index: 6;
+  float: right;
+}
+
+.company .decoration-under {
+  width: 200px;
+  height: 265px;
+  z-index: 6;
+  position: relative;
+  top: 543px;
+  left: 0px;
+}
+
 .company h1 {
   color: #7B3C15;
   text-align: center;
   font-size: 90px;
-  margin-top: 25px;
+  margin-top: -115px;
 }
 
 .company p {
@@ -11014,12 +11026,9 @@ footer .row a {
 .company .reaction {
   width: 110px;
   height: 110px;
-}
-
-.company .kitchenware {
-  width: 200px;
-  height: 200px;
-  justify-content: flex-end;
+  position: relative;
+  top: -160px;
+  left: -325px;
 }
 
 .company .card-body .col-form-label {
@@ -11027,9 +11036,10 @@ footer .row a {
 }
 
 .company .card-body .btn {
+  margin-bottom: 80px;
   background-color: #84644D;
   border-color: #84644D;
-  padding: 5px 70px;
+  padding: 5px 60px;
   font-size: 20px;
 }
 
@@ -11037,18 +11047,5 @@ footer .row a {
   background-color: #84644D;
   border-color: #84644D;
   opacity: 0.7;
-}
-
-.company .card-body .company-sign-up {
-  text-align: center;
-  text-align: center;
-  display: block;
-  padding-top: 30px;
-}
-
-.company .card-body .company-sign-up a {
-  color: #6A8B41;
-  font-weight: bold;
-  font-size: 20px;
 }
 
