@@ -1,0 +1,61 @@
+
+.login-ecopeco{
+  background-color: #F4FAEC;
+
+  .login1 {
+    width: 310px;
+    height: 255px;
+    z-index: 10;
+    position: absolute;
+    top: 55px;
+    left: 1130px;
+    float: right;
+  }
+  
+  .col-md-8{
+    z-index: 5;
+
+
+    h1{
+      color: #7B3C15;
+      text-align: center;
+      font-size: 90px;
+    }
+    
+    .login-image{
+      width: 110px;
+      height: 110px;
+      z-index: 5;
+      position: relative;
+      top: 70px;
+      left: 140px;
+    }
+    
+    
+    .col-form-label {
+      color: #6A8B41;
+    }
+    
+    .form-check{
+      color: #6A8B41;
+    }
+    
+    .btn-primary{
+      background-color: #84644D;
+      border-color: #84644D;
+      padding: 5px 60px;
+      font-size: 20px;
+      
+      &:hover {
+        background-color: #84644D;
+        border-color: #84644D;
+        opacity: .7;
+      }
+    }
+    .btn-link{
+      color: #6A8B41;
+      font-weight: bold;
+      margin-bottom: 144px;
+    }
+  }
+}
