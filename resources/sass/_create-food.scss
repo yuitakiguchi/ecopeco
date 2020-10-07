@@ -1,0 +1,74 @@
+.create-food{
+  background-color: #F4FAEC;
+  h1{
+    color: #7B3C15;
+    font-size: 90px;
+    z-index: 2;
+  }
+
+  .create-food1{
+    width: 300px;
+    height: 300px;
+    z-index: 10;
+    position: absolute;
+    top: 675px;
+    left: 1140px;
+  }
+
+  .create-food2{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 70px;
+    left: 0px;
+  }
+
+  .create-food3{
+    width: 100px;
+    height: 110px;
+    z-index: 5;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .card{
+    color: #6A8B41;
+    border-radius: 0;
+    h2{
+      font-weight: bold;
+      font-size: 25px;
+      padding-bottom: 30px;
+    }
+    .form-group{
+      padding-bottom: 20px;
+    }
+    .trading_date{
+      padding: 0 10px;
+    }
+    .trading_time{
+      padding: 0 40px;
+    }
+  }
+
+  .btn-primary{
+    background-color: #84644D;
+    border-color: #84644D;
+    padding: 5px 60px;
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    
+    &:hover {
+      background-color: #84644D;
+      border-color: #84644D;
+      opacity: .7;
+    }
+  }
+
+  .btn-secondary{
+    padding: 5px 110px;
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+}
