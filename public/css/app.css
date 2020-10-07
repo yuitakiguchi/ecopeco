@@ -11253,8 +11253,8 @@ footer .row a {
   height: 110px;
   z-index: 5;
   position: relative;
-  top: -155px;
-  left: -305px;
+  top: -135px;
+  left: -125px;
 }
 
 .edit-user .card {
@@ -11290,21 +11290,16 @@ footer .row a {
 }
 
 .edit-user-company h1 {
-  color: #7B3C15;
+  color: #F4FAEC;
   font-size: 90px;
   padding-top: 57px;
-  z-index: 2;
-}
-
-.edit-user-company h1 small {
-  font-size: 50px;
-  color: #F4FAEC;
+  padding-bottom: 30px;
   z-index: 2;
 }
 
 .edit-user-company .edit-user-company1 {
   width: 1085px;
-  height: 952px;
+  height: 1135px;
   position: absolute;
   top: 78px;
   left: 0px;
@@ -11315,14 +11310,29 @@ footer .row a {
   height: 255px;
   z-index: 10;
   position: absolute;
-  top: 745px;
+  top: 100px;
   left: 1130px;
+}
+
+.edit-user-company .edit-user3 {
+  width: 85px;
+  height: 110px;
+  z-index: 5;
+  position: absolute;
+  top: -163px;
+  left: -72px;
 }
 
 .edit-user-company .card {
   background-color: #F4FAEC;
   border-radius: 0;
   color: #6A8B41;
+  padding-bottom: 45px;
+}
+
+.edit-user-company .card h2 {
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .edit-user-company .btn-primary {
