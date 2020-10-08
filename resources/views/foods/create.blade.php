@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="create-food">
-  <img class="create-food1 d-none  d-xl-inline-block" src="../../images/contact2.png">
-  <img class="create-food2 d-none  d-xl-inline-block" src="../../images/contact1.png">
+  <img class="create-food1 d-none  d-xl-inline-block" src="../../images/create-food1.png">
+  <img class="create-food2 d-none  d-xl-inline-block" src="../../images/create-food2.png">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7">
@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="card-trading_time col-md-8">
-                                <label for="trading_time" class="col-md-4 col-form-label">取引時間</label>
+                                <label for="trading_time" class="col-md-4 col-form-label">取引終了時間</label>
                                 <input class="trading_time" type="time" name="trading_time">
                             </div>
 

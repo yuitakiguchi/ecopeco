@@ -6,8 +6,7 @@
     <img class="decoration-under d-none  d-xl-inline-block" src="images/sign-up4.png">
     <div class="container">
         <div class="row justify-content-center">
-            
-            <h1 class="mt-5">sign up business person</h1>
+            <h1 class="my-5">sign up business person</h1>
             <div class="col-md-6">
                 <p>Welcome to ecopeco!</p>
                 <img class="reaction d-none  d-xl-inline-block" src="images/sign-up1.png">

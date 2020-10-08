@@ -10938,7 +10938,7 @@ footer .row a {
   z-index: 6;
   position: absolute;
   top: 55px;
-  left: 1110px;
+  left: 1130px;
 }
 
 .user .reaction {
@@ -11011,7 +11011,7 @@ footer .row a {
   height: 300px;
   z-index: 6;
   position: absolute;
-  top: 447px;
+  top: 391px;
   left: 0px;
 }
 
@@ -11019,7 +11019,6 @@ footer .row a {
   color: #7B3C15;
   text-align: center;
   font-size: 90px;
-  z-index: 2;
 }
 
 .company p {
@@ -11033,8 +11032,8 @@ footer .row a {
   width: 110px;
   height: 110px;
   position: absolute;
-  top: -160px;
-  left: -300px;
+  top: -188px;
+  left: -297px;
 }
 
 .company .card-body .col-form-label {
@@ -11060,12 +11059,12 @@ footer .row a {
 }
 
 .login-ecopeco .login1 {
-  width: 310px;
-  height: 255px;
+  width: 415px;
+  height: 300px;
   z-index: 10;
   position: absolute;
   top: 55px;
-  left: 1130px;
+  left: 1025px;
 }
 
 .login-ecopeco .col-md-8 {
@@ -11078,13 +11077,13 @@ footer .row a {
   font-size: 90px;
 }
 
-.login-ecopeco .col-md-8 .login-image {
+.login-ecopeco .col-md-8 .sign-up1 {
   width: 110px;
   height: 110px;
   z-index: 5;
-  position: relative;
-  top: 70px;
-  left: 140px;
+  position: absolute;
+  top: 3px;
+  left: 165px;
 }
 
 .login-ecopeco .col-md-8 .col-form-label {
@@ -11100,7 +11099,7 @@ footer .row a {
   border-color: #84644D;
   padding: 5px 60px;
   font-size: 20px;
-  margin: 20px 0;
+  margin: 35px 0 20px 0;
 }
 
 .login-ecopeco .col-md-8 .btn-primary:hover {
@@ -11112,7 +11111,7 @@ footer .row a {
 .login-ecopeco .col-md-8 .btn-link {
   color: #6A8B41;
   font-weight: bold;
-  margin-bottom: 144px;
+  margin-bottom: 66px;
 }
 
 #contact {
@@ -11431,6 +11430,86 @@ footer .row a {
 }
 
 .create-food .btn-secondary {
+  padding: 5px 110px;
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+.edit-food {
+  background-color: #EBE7DB;
+}
+
+.edit-food h1 {
+  color: #7B3C15;
+  font-size: 90px;
+  z-index: 2;
+}
+
+.edit-food .edit-food1 {
+  width: 265px;
+  height: 300px;
+  z-index: 10;
+  position: absolute;
+  top: 603px;
+  left: 0px;
+}
+
+.edit-food .edit-food2 {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 70px;
+  left: 1125px;
+}
+
+.edit-food .edit-food3 {
+  width: 110px;
+  height: 110px;
+  z-index: 5;
+  position: absolute;
+  top: 15px;
+  left: 50px;
+}
+
+.edit-food .card {
+  color: #6A8B41;
+  border-radius: 0;
+}
+
+.edit-food .card h2 {
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+
+.edit-food .card .form-group {
+  padding-bottom: 20px;
+}
+
+.edit-food .card .trading_date {
+  padding: 0 10px;
+}
+
+.edit-food .card .trading_time {
+  padding: 0 40px;
+}
+
+.edit-food .btn-primary {
+  background-color: #84644D;
+  border-color: #84644D;
+  padding: 5px 60px;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+.edit-food .btn-primary:hover {
+  background-color: #84644D;
+  border-color: #84644D;
+  opacity: 0.7;
+}
+
+.edit-food .btn-secondary {
   padding: 5px 110px;
   font-size: 20px;
   margin-bottom: 60px;

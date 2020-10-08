@@ -6,8 +6,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <img class="login-image d-none d-xl-inline-block" src="images/sign-up1.png">
-                <h1>login</h1>
+                <img class="sign-up1 d-none d-xl-inline-block" src="images/sign-up1.png">
+                <h1 class="py-5">login</h1>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
