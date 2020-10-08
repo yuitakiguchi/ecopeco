@@ -18,6 +18,7 @@
                 target="dummyIframe" name="myForm" novalidate="novalidate">
                 {{-- <div class="row"> --}}
                     {{-- <div class="col-md-6"> --}}
+                  <div id="formWrapper">
                         <div class="form-group row">
                             <input class="form-control" name="entry.1054758800" id="name" type="text"
                                 placeholder="お名前 *" required="required"
@@ -49,6 +50,7 @@
                             onclick="sendGform()">送信</button>
                     </div>
                 {{-- </div> --}}
+                  </div>
             </form>
           </div>
           <iframe name="dummyIframe" style="display:none;"></iframe>
