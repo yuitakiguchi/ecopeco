@@ -6,14 +6,15 @@
     <img class="decoration-under d-none  d-xl-inline-block" src="images/sign-up4.png">
     <div class="container">
         <div class="row justify-content-center">
-            <h1>sign up business person</h1>
+            
+            <h1 class="mt-5">sign up business person</h1>
             <div class="col-md-6">
-                <img class="reaction d-none  d-xl-inline-block" src="images/sign-up1.png">
                 <p>Welcome to ecopeco!</p>
+                <img class="reaction d-none  d-xl-inline-block" src="images/sign-up1.png">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                <form method="POST" action="{{ route('register') }}">
+                @csrf
+                    <div class="card-body text-center py-5">
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('店舗名') }}</label>
@@ -67,9 +68,9 @@
                                     {{ __('登録') }}
                                 </button>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </div>           
+                    </div>
+                </form>
             </div>
         </div> 
     </div> 

@@ -61,7 +61,7 @@
                                         {{ __('マイページ') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('users.edit', Auth::user()->id )}}" >
-                                        {{ __('登録情報編集') }}
+                                        {{ __('アカウント設定') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
