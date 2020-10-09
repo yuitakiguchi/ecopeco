@@ -129,7 +129,23 @@
     color:#5C5C5C;
   }
 
-  a:hover{
-    text-decoration: none;
+  .other-posts{
+    text-decoration:none; 
+    .card{
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all .3s;
+      transition: all .3s;
+      margin: 10px 0 0 0
+    }
+    .card:hover{
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
   }
+
+  
+
 }

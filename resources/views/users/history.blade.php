@@ -1,4 +1,4 @@
-@extends('layouts.app')　
+@extends('layouts.app')
 
 @section('content')
 @if (Auth::user()->authority_id === \App\User::AUTHORITY_COMPANY)

@@ -150,7 +150,7 @@
                     <div class="row justify-content-center">
                         @foreach ($companyFoods as $companyFood)
                             <div class="col-md-4 mb-5 text-center mx-auto">
-                                <a href="{{ route('foods.show',$companyFood->id) }}">
+                                <a class="other-posts" href="{{ route('foods.show',$companyFood->id) }}">
                                     <div class="card">
                                         <img src="{{ $companyFood->image_name }}" class="card-img-top" alt="商品画像">
                                         <div class="card-body">
