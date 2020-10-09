@@ -77,7 +77,7 @@ class FoodController extends Controller
             Cloudder::upload($image_path, null);
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
-                'width'     => 200,
+                'width'     => 300,
                 'height'    => 200
             ]);
             $food->image_name = $logoUrl;
