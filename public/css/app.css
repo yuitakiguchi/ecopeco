@@ -11011,7 +11011,7 @@ footer .row a {
   height: 300px;
   z-index: 6;
   position: absolute;
-  top: 391px;
+  top: 487px;
   left: 0px;
 }
 
@@ -11652,5 +11652,9 @@ footer .row a {
 
 .show-food-user a:hover {
   text-decoration: none;
+}
+
+.header {
+  background-color: #CBD8B9;
 }
 
