@@ -86,6 +86,7 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         //userを更新している。
+        // dd($request);
         $user = User::find($id);
 
         if(Auth::id() !== $user->id){

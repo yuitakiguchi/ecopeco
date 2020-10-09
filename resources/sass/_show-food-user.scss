@@ -1,0 +1,135 @@
+.show-food-user{
+  background-color: #F4FAEC;
+  color: #7B3C15;
+
+  .show-food-user2{
+    width: 320px;
+    height: 350px;
+    z-index: 10;
+    position: absolute;
+    top: 58px;
+    left: 0px;
+  }
+  .show-food-user3{
+    width: 220px;
+    height: 325px;
+    z-index: 10;
+    position: absolute;
+    top: 1020px;
+    left: 0px;
+  }
+  
+  .show-food-user4{
+    width: 320px;
+    height: 385px;
+    z-index: 10;
+    position: absolute;
+    top: 550px;
+    left: 1120px;
+  }
+  .show-food-user5{
+    width: 300px;
+    height: 500px;
+    z-index: 10;
+    position: absolute;
+    top: 1455px;
+    left: 1140px;
+  }
+
+  h5{
+    margin: 45px 0;
+    font-size: 40px;
+    color: #7B3C15;
+    border-bottom: solid 3px #E6E7E2;
+  }
+
+  table{
+    color: #5C5C5C;
+  }
+
+  .post-image{
+    width: 300px;
+    height: 200px;
+    border: 10px solid #4D3724;
+  }
+
+  .above-post-image{
+    width: 170px;
+    height: 60px;
+    z-index: 5;
+    position: absolute;
+    top: 135px;
+    left: 85px;
+  }
+  .above-shop-img{
+    width: 170px;
+    height: 60px;
+    z-index: 5;
+    position: absolute;
+    top: 760px;
+    left: 85px;
+  }
+
+  .table-bordered{
+    background-color: #fff;
+  }
+
+  select{
+    width: 150px;
+    height: 40px;
+    border: 1px solid #d3d3d3;
+  }
+
+  .btn-primary{
+    background-color: #84644D;
+    border-color: #84644D;
+    padding: 5px 60px;
+    font-size: 20px;
+    margin: 60px 0px 30px 0;
+
+    &:hover {
+        background-color: #84644D;
+        border-color: #84644D;
+        opacity: .7;
+    }
+  }
+
+  .btn-danger{
+    background-color: #e3342f;
+    border-color: #e3342f;
+    padding: 5px 60px;
+    font-size: 20px;
+    margin: 60px 0px 30px 0;
+
+    &:hover {
+        background-color: #e3342f;
+        border-color: #e3342f;
+        opacity: .7;
+    }
+  }
+
+    .shop-img{
+        width: 300px;
+        height: 200px;
+        border: 10px solid #4D3724;
+    }
+
+  .map{
+    margin-top: 30px;
+  }
+
+  h4{
+    font-size: 15px;
+    color: #5C5C5C;
+    font-weight: bold;
+  }
+
+  .card-text{
+    font-size: 15px;
+    color:#5C5C5C;
+  }
+
+  a:hover{
+    text-decoration: none;
+  }
+}

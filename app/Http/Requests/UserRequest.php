@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserRequest extends FormRequest
@@ -26,7 +27,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name'    => 'required|max:25',
-            'email'   => 'required|unique:users,email',
+            'email'   => 'required|unique:users,email,' . Auth::id(),
         ];
     }
 
