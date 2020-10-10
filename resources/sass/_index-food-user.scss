@@ -1,0 +1,56 @@
+.index-food-user{
+  background-color: #F4FAEC;
+  min-height: 615px;
+
+  form {
+    text-align: center;
+    padding: 50px 0;
+
+    .btn-primary{
+      background-color: #84644D;
+      border-color: #84644D;
+      padding: 5px 20px;
+      font-size: 20px;
+      
+      &:hover {
+        background-color: #84644D;
+        border-color: #84644D;
+        opacity: .7;
+      }
+    }
+  }
+
+  .card-header{
+    color: #6A8B41;
+    font-weight: bold;
+    background-color: #EBE7DB;
+  }
+
+  p .search-results{
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  a{
+    text-decoration:none; 
+    .card{
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all .3s;
+      transition: all .3s;
+      margin: 10px 0 0 0;
+      color: #5C5C5C;
+    }
+    .card:hover{
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+    .card-title{
+      font-size: 15px;
+      color: #6A8B41;
+      font-weight: bold;
+    }
+  }
+}
