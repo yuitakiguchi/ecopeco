@@ -11641,7 +11641,7 @@ footer .row a {
 
 .show-food-user h4 {
   font-size: 15px;
-  color: #5C5C5C;
+  color: #6A8B41;
   font-weight: bold;
 }
 
@@ -11673,5 +11673,60 @@ footer .row a {
   font-weight: bold;
   font-size: 25px;
   text-decoration: none;
+}
+
+.index-food-user {
+  background-color: #F4FAEC;
+  min-height: 615px;
+}
+
+.index-food-user form {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.index-food-user form .btn-primary {
+  background-color: #84644D;
+  border-color: #84644D;
+  padding: 5px 20px;
+  font-size: 20px;
+}
+
+.index-food-user form .btn-primary:hover {
+  background-color: #84644D;
+  border-color: #84644D;
+  opacity: 0.7;
+}
+
+.index-food-user .card-header {
+  color: #6A8B41;
+  font-weight: bold;
+  background-color: #EBE7DB;
+}
+
+.index-food-user p .search-results {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.index-food-user a {
+  text-decoration: none;
+}
+
+.index-food-user a .card {
+  box-sizing: border-box;
+  transition: all 0.3s;
+  margin: 10px 0 0 0;
+  color: #5C5C5C;
+}
+
+.index-food-user a .card:hover {
+  transform: translateY(-5px);
+}
+
+.index-food-user a .card-title {
+  font-size: 15px;
+  color: #6A8B41;
+  font-weight: bold;
 }
 
