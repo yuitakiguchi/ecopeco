@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="edit-food">
-  <img class="edit-food1 d-none  d-xl-inline-block" src="../../images/edit-food1.png">
-  <img class="edit-food2 d-none  d-xl-inline-block" src="../../images/edit-food2.png">
+    <img class="edit-food1 d-none  d-xl-inline-block" src="../../images/edit-food1.png">
+    <img class="edit-food2 d-none  d-xl-inline-block" src="../../images/edit-food2.png">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7">
-              <img class="edit-food3 d-none  d-xl-inline-block" src="../../images/sign-up1.png">
+                <img class="edit-food3 d-none  d-xl-inline-block" src="../../images/sign-up1.png">
                 @include('layouts.flash')
                 <form action="{{ route('foods.update', $food->id) }}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="card-trading_time col-md-8">
-                              <label for="trading_time" class="col-md-4 col-form-label">取引終了時間</label>
+                                <label for="trading_time" class="col-md-4 col-form-label">取引終了時間</label>
                                 <input class="trading_time" type="time" name="trading_time" value="{{ $food->trading_time }}">
                             </div>
 
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <a class="btn btn-secondary" href="{{ route('foods.show', $food->id) }}">戻る</a>
+                        <a class="btn btn-secondary" href="{{ route('foods.index') }}">戻る</a>
                     </div>
                 </form>
             </div>

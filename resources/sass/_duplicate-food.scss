@@ -1,4 +1,4 @@
-.edit-food{
+.duplicate-food{
   background-color:#EBE7DB;
   h1{
     color: #7B3C15;
@@ -6,34 +6,32 @@
     z-index: 2;
   }
 
-  .edit-food1{
-    width: 265px;
-    height: 300px;
+  .duplicate-food1{
+    width: 300px;
+    height: 675px;
     z-index: 10;
     position: absolute;
-    top: 603px;
+    top: 370px;
     left: 0px;
   }
 
-  .edit-food2{
-    width: 300px;
+  .duplicate-food2{
+    width: 285px;
     height: 300px;
     position: absolute;
     top: 70px;
-    left: 1125px;
+    left: 1155px;
   }
 
-  .edit-food3{
+  .duplicate-food3{
     width: 110px;
     height: 110px;
     z-index: 5;
     position: absolute;
     top: 15px;
-    left: 50px;
+    left: -45px;
   }
 
-  
-  
   .card{
     color: #6A8B41;
     border-radius: 0;
@@ -69,4 +67,5 @@
     font-size: 20px;
     margin-bottom: 60px;
   }
+
 }
