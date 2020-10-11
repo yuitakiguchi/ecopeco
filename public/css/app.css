@@ -11680,6 +11680,20 @@ footer .row a {
   min-height: 615px;
 }
 
+.index-food-user .search-results {
+  color: #6A8B41;
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: solid 3px #E6E7E2;
+}
+
+.index-food-user .not-found {
+  color: #6A8B41;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .index-food-user form {
   text-align: center;
   padding: 50px 0;
@@ -11725,6 +11739,142 @@ footer .row a {
 }
 
 .index-food-user a .card-title {
+  font-size: 15px;
+  color: #6A8B41;
+  font-weight: bold;
+}
+
+.histories-user-top {
+  background-color: #F4FAEC;
+  min-height: 615px;
+  text-align: center;
+}
+
+.histories-user-top .nav-link {
+  color: #6A8B41;
+}
+
+.histories-user-top .nav-link.active {
+  background-color: #F4FAEC;
+  font-weight: bold;
+  color: #6A8B41;
+}
+
+.histories-user-top h1 {
+  color: #7B3C15;
+  font-size: 40px;
+  margin: 45px 0;
+  border-bottom: solid 3px #E6E7E2;
+}
+
+.histories-user-top p {
+  font-size: 20px;
+  margin: 16px 0;
+}
+
+.histories-user-top .brown {
+  background-color: #9DA48B;
+  color: #fff;
+}
+
+.histories-user-top .white {
+  background-color: #f4f4f4;
+  color: #6A8B41;
+  border: 1px solid #E6E7E2;
+}
+
+.histories-user-top img {
+  height: 60px;
+  width: 125px;
+}
+
+.histories-user-reservation {
+  background-color: #F4FAEC;
+  min-height: 615px;
+  text-align: center;
+}
+
+.histories-user-reservation .nav-link {
+  color: #6A8B41;
+}
+
+.histories-user-reservation .nav-link.active {
+  background-color: #F4FAEC;
+  font-weight: bold;
+  color: #6A8B41;
+}
+
+.histories-user-reservation h1 {
+  color: #7B3C15;
+  font-size: 40px;
+  margin: 45px 0;
+  border-bottom: solid 3px #E6E7E2;
+}
+
+.histories-user-reservation a {
+  text-decoration: none;
+}
+
+.histories-user-reservation a .card {
+  color: #5C5C5C;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  margin: 10px 0 20px 0;
+}
+
+.histories-user-reservation a .card-header {
+  color: #6A8B41;
+  font-weight: bold;
+  background-color: #EBE7DB;
+  font-size: 15px;
+}
+
+.histories-user-reservation a .card:hover {
+  transform: translateY(-5px);
+}
+
+.histories-user-reservation a .card-name {
+  font-size: 15px;
+  color: #6A8B41;
+  font-weight: bold;
+}
+
+.histories-user-purchase {
+  background-color: #F4FAEC;
+  min-height: 615px;
+  text-align: center;
+}
+
+.histories-user-purchase .nav-link {
+  color: #6A8B41;
+}
+
+.histories-user-purchase .nav-link.active {
+  background-color: #F4FAEC;
+  font-weight: bold;
+  color: #6A8B41;
+}
+
+.histories-user-purchase h1 {
+  color: #7B3C15;
+  font-size: 40px;
+  margin: 45px 0;
+  border-bottom: solid 3px #E6E7E2;
+}
+
+.histories-user-purchase .card {
+  color: #5C5C5C;
+  margin: 10px 0 20px 0;
+}
+
+.histories-user-purchase .card-header {
+  color: #6A8B41;
+  font-weight: bold;
+  background-color: #EBE7DB;
+  font-size: 15px;
+}
+
+.histories-user-purchase .card-name {
   font-size: 15px;
   color: #6A8B41;
   font-weight: bold;

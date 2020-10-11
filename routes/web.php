@@ -24,7 +24,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('foods', 'FoodController');
 
 Route::resource('users', 'UserController');
+
 Route::get('users/{user}/histories', 'UserController@history')->name('users.histories');
+
+Route::get('users/{user}/historiesReservation', 'UserController@historyReservation')->name('users.histories.reservation');
+
+Route::get('users/{user}/historiesPurchase', 'UserController@historyPurchase')->name('users.histories.purchase');
 
 Route::resource('bookings', 'BookingController');
 

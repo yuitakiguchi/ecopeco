@@ -1,0 +1,42 @@
+.histories-user-top{
+  background-color: #F4FAEC;
+  min-height: 615px;
+  text-align: center;
+
+  .nav-link{
+    color: #6A8B41;
+
+    &.active{
+      background-color: #F4FAEC;
+      font-weight: bold;
+      color: #6A8B41;
+    }
+  }
+
+    h1{
+      color: #7B3C15;
+      font-size: 40px;
+      margin: 45px 0;
+      border-bottom: solid 3px #E6E7E2;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 16px 0;
+    }
+    .brown{
+      background-color: #9DA48B;
+      color: #fff;
+    }
+
+    .white{
+      background-color: #f4f4f4;
+      color: #6A8B41;
+      border: 1px solid #E6E7E2;
+    }
+
+    img{
+      height: 60px;
+      width: 125px;
+    }
+}

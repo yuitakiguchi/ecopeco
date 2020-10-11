@@ -1,0 +1,53 @@
+.histories-user-reservation{
+
+  background-color: #F4FAEC;
+  min-height: 615px;
+  text-align: center;
+
+  .nav-link{
+    color: #6A8B41;
+
+    &.active{
+      background-color: #F4FAEC;
+      font-weight: bold;
+      color: #6A8B41;
+    }
+  }
+
+  h1{
+    color: #7B3C15;
+    font-size: 40px;
+    margin: 45px 0;
+    border-bottom: solid 3px #E6E7E2;
+  }
+
+  a{
+    text-decoration: none;
+    .card{
+    color: #5C5C5C;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    margin: 10px 0 20px 0;
+    }
+    .card-header{
+      color: #6A8B41;
+      font-weight: bold;
+      background-color: #EBE7DB;
+      font-size: 15px;
+    }
+
+    .card:hover{
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+    .card-name{
+      font-size: 15px;
+      color: #6A8B41;
+      font-weight: bold;
+    }
+  }
+}

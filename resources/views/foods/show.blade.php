@@ -56,7 +56,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">引取日</th>
-                                        <td>{{ $food->trading_date }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($food->trading_date)->format("Y年n月j日") }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">引取終了時間</th>
@@ -155,7 +155,7 @@
                                         <img src="{{ $companyFood->image_name }}" class="card-img-top" alt="商品画像">
                                         <div class="card-body">
                                             <h4 class="card-name">{{ $companyFood->name }}</h4>
-                                            <p class="card-text">引取日：{{ $companyFood->trading_date }}</p>
+                                            <p class="card-text">引取日：{{ \Carbon\Carbon::parse($companyFood->trading_date)->format("Y年n月j日") }}</p>
                                             <p class="card-text">引取時間：{{ $companyFood->trading_time }}</p>
                                             <p class="card-text">{{ $companyFood->price }}円→{{ $companyFood->discount_price }}円</p>
                                             <p class="card-text">クーポン{{ $companyFood->coupon }}枚</p>
