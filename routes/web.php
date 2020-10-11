@@ -27,6 +27,8 @@ Route::resource('users', 'UserController');
 
 Route::get('users/{user}/histories', 'UserController@history')->name('users.histories');
 
+Route::get('users/{user}/historiesCompany', 'UserController@history')->name('users.histories.company');
+
 Route::get('users/{user}/historiesReservation', 'UserController@historyReservation')->name('users.histories.reservation');
 
 Route::get('users/{user}/historiesPurchase', 'UserController@historyPurchase')->name('users.histories.purchase');

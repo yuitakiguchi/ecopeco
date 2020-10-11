@@ -118,7 +118,7 @@ class UserController extends Controller
         $user = User::find($id);
         $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
             if(Auth::user()->authority_id === \App\User::AUTHORITY_COMPANY){
-                return view('users.history.company', compact('user', 'companyFoods'));
+                return view('users.history-company', compact('user', 'companyFoods'));
             } else{
                 return view('users.history', compact('user'));
             }
