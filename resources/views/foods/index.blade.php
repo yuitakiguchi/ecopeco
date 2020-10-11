@@ -33,7 +33,7 @@
           @endforeach
         </div>
       @else
-        <p>見つかりませんでした。</p>
+        <p class="not-found">見つかりませんでした。</p>
       @endif
     @else
       <div class="row mb-5 justify-content-center">

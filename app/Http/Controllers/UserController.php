@@ -117,8 +117,24 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->latest()->get();
+            if(Auth::user()->authority_id === \App\User::AUTHORITY_COMPANY){
+                return view('users.history.company', compact('user', 'companyFoods'));
+            } else{
+                return view('users.history', compact('user'));
+            }
+    }
+
+    public function historyReservation($id)
+    {
+        $user = User::find($id);
         $reservationHistories = Booking::with('user','food')->where('user_id', Auth::id())->where('is_sold', 0)->latest()->get();
+        return view('users.historyReservation', compact('user', 'reservationHistories'));
+    }
+
+    public function historyPurchase($id)
+    {
+        $user = User::find($id);
         $purchaseHistories = Booking::with('user','food')->where('user_id', Auth::id())->where('is_sold', 1)->latest()->get();
-        return view('users.history', compact('user', 'companyFoods', 'purchaseHistories', 'reservationHistories'));
+        return view('users.historyPurchase', compact('user', 'purchaseHistories'));
     }
 }
