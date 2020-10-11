@@ -11874,10 +11874,27 @@ footer .row a {
   font-weight: bold;
 }
 
-.histories-user-purchase {
+.histories-user-company {
   background-color: #F4FAEC;
   min-height: 615px;
   text-align: center;
+}
+
+.histories-user-company .nav-link {
+  color: #6A8B41;
+}
+
+.histories-user-company .nav-link.active {
+  background-color: #F4FAEC;
+  font-weight: bold;
+  color: #6A8B41;
+}
+
+.histories-user-company h1 {
+  color: #7B3C15;
+  font-size: 40px;
+  margin: 45px 0;
+  border-bottom: solid 3px #E6E7E2;
 }
 
 .duplicate-food {

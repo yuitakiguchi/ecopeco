@@ -93,7 +93,7 @@
                                     <div class="card col-md-8 text-center">
                                         <div class="card-body">
                                             <p class="card-text">
-                                                {{ $booking->user->name }}<br>　クーポン利用{{ $booking->count }}枚<br>　予約時刻{{ $booking->created_at }}
+                                                {{ $booking->user->name }}<br>クーポン利用{{ $booking->count }}枚<br>予約時刻{{ $booking->created_at }}
                                             </p>
                                         </div>
                                     </div>
