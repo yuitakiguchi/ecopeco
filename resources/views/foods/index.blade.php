@@ -22,7 +22,7 @@
                     <div class="card">
                         <div class="card-header">{{ $food->user->name }}</div>
                         <div class="card-body">
-                            <img src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
+                            <img class="img-fluid" src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
                             <h5 class="card-title">{{ $food->name }}</h5>
                             <p class="card-text">引取日：{{ $food->trading_date }}</p>
                             <p class="card-text">引取時間：{{ $food->trading_time }}</p>
@@ -62,67 +62,103 @@
     </div>
 </div>
 @else
-<div class="index-food-company">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ route('foods.index') }}">TOP</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.histories.company', Auth::user()->id) }}">出品履歴</a>
-        </li>
-    </ul>
-    <div class="container">
-        <a href="{{ route('foods.create') }}">新規投稿</a>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                @include('layouts.flash')
+    <div class="index-food-company">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ route('foods.index') }}">TOP</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('users.histories.company', Auth::user()->id) }}">出品履歴</a>
+            </li>
+        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="{{ route('foods.create') }}">
+                        <div class="card">投稿</div>
+                    </a>
+                </div>
             </div>
-        </div>
-        <h5>出品中商品一覧</h5>
-        @foreach ($companyFoods as $companyFood)
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row justify-content-center">
-                            <div class="col-md-4">
-                                <a href="{{ route('foods.show', $companyFood->id) }}"><img
-                                        src="{{ $companyFood->image_name }}" alt="商品の写真"></a>
-                                <p class="card-text">商品名：{{ $companyFood->name }}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row justify-content-center">
-                                    @foreach ($companyFood->bookings as $booking)
-                                    <div class="card col-md-8 text-center">
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                                {{ $booking->user->name }}<br>クーポン利用{{ $booking->count }}枚<br>予約時刻{{ $booking->created_at }}
-                                            </p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @include('layouts.flash')
+                    <h1>{{ Auth::user()->name }}出品中商品一覧</h1>
+                    @foreach ($companyFoods as $companyFood)
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <nav class="navbar navbar-expand-md shadow-sm">
+                                    <div class="container">
+                                        <h2 class="navbar-brand">{{ $companyFood->name }}</h2>
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                            <span class="navbar-toggler-icon"></span>
+                                        </button>
+                    
+                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                            <!-- Left Side Of Navbar -->
+                                            <ul class="navbar-nav mr-auto"></ul>
+                                            <!-- Right Side Of Navbar -->
+                                            <ul class="navbar-nav ml-auto">
+                                                <!-- Authentication Links -->
+                                                <li class="nav-item dropdown">
+                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                        <i class="fas fa-edit"></i> <span class="caret"></span>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                        <a class="dropdown-item" href="{{ route('foods.edit', $companyFood->id) }}">編集</a>
+                                                        <form class="dropdown-item" action='{{ route('foods.destroy', $companyFood->id) }}' method='post'>
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
+                                                            <input type='submit' value='削除' class="delete" onclick='return confirm("削除しますか？？");'>
+                                                        </form> 
+                                                    </div> 
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <form action="{{ route('bookings.update', $booking) }}" method="POST">
-                                            @method('PATCH')
-                                            @csrf
-                                            @if($booking -> is_sold === 0)
-                                            <input type="submit" value="予約中" class="btn btn-primary ">
-                                            @else
-                                            <input type="submit" value="購入済み" class="btn btn-danger ">
-                                            @endif
-                                        </form>
+                                </nav>
+
+                                <div class="card-body">
+                                    <h3 crass="text-center">予約者一覧</h3>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-4">
+                                            <img class="img-fluid" src="{{ $companyFood->image_name }}" alt="商品の写真">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row justify-content-center">
+                                                @foreach ($companyFood->bookings as $booking)
+                                                <div class="card col-md-8 text-center">
+                                                    <div class="reservation-card-body">
+                                                        <div class="row justify-content-center">
+                                                            <p>{{ $booking->user->name }}</p>
+                                                            <p class="coupon">{{ $booking->count }}枚</p>
+                                                        </div>
+                                                        <p>予約時刻{{ $booking->created_at }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <form action="{{ route('bookings.update', $booking) }}" method="POST">
+                                                        @method('PATCH')
+                                                        @csrf
+                                                        @if($booking -> is_sold === 0)
+                                                        <input type="submit" value="予約中" class="btn btn-primary ">
+                                                        @else
+                                                        <input type="submit" value="購入済み" class="btn btn-danger ">
+                                                        @endif
+                                                    </form>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
-                            <a class="btn btn-primary btn-lg btn-block"
-                                href="{{ route('foods.edit', $companyFood->id) }}">この商品の情報を編集する</a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        @endforeach
-        @endif
     </div>
-</div>
+@endif
 @endsection
