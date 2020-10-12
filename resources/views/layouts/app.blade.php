@@ -58,9 +58,11 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('users.histories', Auth::user()->id )}}">
-                                            {{ __('マイページ') }}
-                                        </a>
+                                        @if (Auth::user()->authority_id === \App\User::AUTHORITY_USER)
+                                            <a class="dropdown-item" href="{{ route('users.histories', Auth::user()->id )}}">
+                                                {{ __('マイページ') }}
+                                            </a>
+                                        @endif
 
                                         <a class="dropdown-item" href="{{ route('users.edit', Auth::user()->id )}}" >
                                             {{ __('アカウント設定') }}
