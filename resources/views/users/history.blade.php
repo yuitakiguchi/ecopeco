@@ -20,12 +20,12 @@
                 <h1>{{ Auth::user()->name }}さんの利用履歴</h1>
                 @isset(Auth::user() -> history)
                 <div class="row justify-content-center">
-                    <div class="col-md-4 brown">
+                    <div class="col-md-4 ">
                         <p>今月の利用回数</p>
                         <img class="histories-user1 d-none d-xl-inline-block" src="../../images/histories-user1.png">
                         <p>{{ Auth::user() -> history -> count }}回</p>
                     </div>
-                    <div class="col-md-4 white">
+                    <div class="col-md-4 ">
                         <p>総合利用回数</p>
                         <img class="histories-user1 d-none d-xl-inline-block" src="../../images/histories-user1.png">
                         <p>{{ Auth::user() -> history -> this_month_count }}回</p>
@@ -33,12 +33,12 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-md-4 white">
+                    <div class="col-md-4 ">
                         <p>今月の節約金</p>
                         <img class="histories-user1 d-none  d-xl-inline-block" src="../../images/histories-user1.png">
                         <p>{{ Auth::user() -> history -> this_month_saving_price }}円</p>
                     </div>
-                    <div class="col-md-4 brown">
+                    <div class="col-md-4 ">
                         <p>総合節約金</p>
                         <img class="histories-user1 d-none  d-xl-inline-block" src="../../images/histories-user1.png">
                         <p>{{ Auth::user() -> history -> saving_price }}円</p>
