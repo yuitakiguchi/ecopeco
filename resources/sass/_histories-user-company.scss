@@ -19,4 +19,29 @@
     margin: 45px 0;
     border-bottom: solid 3px #E6E7E2;
   }
+
+  .shadow-sm{
+    box-shadow: 0;
+  }
+
+  h2{
+    color: #6A8B41;
+  }
+
+  nav{
+    background-color: #EBE7DB;
+  }
+
+  .card{
+    margin: 10px 0;
+
+    img{
+      width: 90%;
+      height: 85%;
+    }
+  }
+
+  p{
+    color: #5C5C5C;
+  }
 }

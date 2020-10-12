@@ -14,6 +14,9 @@
         <div class="row mb-5 justify-content-center">
             @foreach ($area->users as $user)
             @foreach ($user->foods as $food)
+            @if($food->trading_date <= \Carbon\Carbon::today())
+            @continue
+            @endif
             <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
                 <a href="{{ route('foods.show',$food->id) }}">
                     <div class="card">

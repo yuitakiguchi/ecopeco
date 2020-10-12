@@ -31,8 +31,8 @@ class FoodController extends Controller
         }
         
         $area = $query->first();
-        $foods = Food::latest()->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->get();
-        $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->latest()->get();
+        $foods = Food::orderBy('trading_date', 'asc')->where('trading_date', '>=' ,Carbon::today())->get();
+        $companyFoods = Food::with('bookings.user')->where('user_id', Auth::id())->where('trading_date', '>=' ,Carbon::today())->where('trading_time', '>=' ,Carbon::now()->toTimeString())->orderBy('trading_date', 'desc')->get();
         return view('foods.index', compact('foods','companyFoods', 'area', 'keyword'));
 
     }
