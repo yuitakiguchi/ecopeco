@@ -46,12 +46,12 @@
                 </div>
                 @else
                 <div class="row justify-content-center">
-                    <div class="col-md-4">
+                    <div class="col-md-4 brown">
                         <p>今月の利用回数</p>
                         <img class="histories-user1 d-none  d-xl-inline-block" src="../../images/histories-user1.png">
                         <p> 0 回</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 white">
                         <p>総合利用回数</p>
                         <img class="histories-user1 d-none  d-xl-inline-block" src="../../images/histories-user1.png">
                         <p> 0 回</p>
@@ -59,12 +59,12 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-md-4">
+                    <div class="col-md-4 white">
                         <p>今月の節約金</p>
                         <img class="histories-user1 d-none  d-xl-inline-block" src="../../images/histories-user1.png">
                         <p> 0 円</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 brown">
                         <p>総合節約金</p>
                         <img class="histories-user1 d-none  d-xl-inline-block" src="../../images/histories-user1.png">
                         <p> 0 円</p>
