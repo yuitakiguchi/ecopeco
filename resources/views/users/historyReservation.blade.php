@@ -4,15 +4,15 @@
 
 <div class="histories-user-reservation">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-          <a class="nav-link" href="{{ route('users.histories', Auth::user()->id) }}">TOP</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link active" href="{{ route('users.histories.reservation', Auth::user()->id) }}">予約中</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{{ route('users.histories.purchase', Auth::user()->id) }}">購入履歴</a>
-      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('users.histories', Auth::user()->id) }}">TOP</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ route('users.histories.reservation', Auth::user()->id) }}">予約中</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('users.histories.purchase', Auth::user()->id) }}">購入履歴</a>
+        </li>
     </ul> 
 
     <div class="container">
