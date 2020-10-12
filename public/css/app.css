@@ -18003,10 +18003,6 @@ footer .row a {
   border-bottom: solid 3px #E6E7E2;
 }
 
-.histories-user-company .shadow-sm {
-  box-shadow: 0;
-}
-
 .histories-user-company h2 {
   color: #6A8B41;
 }
@@ -18100,5 +18096,87 @@ footer .row a {
   padding: 5px 110px;
   font-size: 20px;
   margin-bottom: 60px;
+}
+
+.index-food-company {
+  background-color: #F4FAEC;
+  min-height: 615px;
+  text-align: center;
+}
+
+.index-food-company a {
+  text-decoration: none;
+}
+
+.index-food-company a .card {
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 25px;
+  background-color: #6A8B41;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.index-food-company a .card:hover {
+  transform: translateY(-5px);
+}
+
+.index-food-company .nav-link {
+  color: #6A8B41;
+}
+
+.index-food-company .nav-link.active {
+  background-color: #F4FAEC;
+  font-weight: bold;
+  color: #6A8B41;
+}
+
+.index-food-company h1 {
+  color: #7B3C15;
+  font-size: 40px;
+  margin: 45px 0;
+  border-bottom: solid 3px #E6E7E2;
+}
+
+.index-food-company .delete {
+  border: none;
+  background-color: #fff;
+  padding: 6px 0px;
+}
+
+.index-food-company h2 {
+  color: #6A8B41;
+  font-weight: bold;
+}
+
+.index-food-company h3 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #6A8B41;
+}
+
+.index-food-company nav {
+  background-color: #EBE7DB;
+}
+
+.index-food-company .card {
+  margin: 10px 0;
+}
+
+.index-food-company .coupon {
+  padding-left: 10px;
+}
+
+.index-food-company .btn-primary {
+  position: absolute;
+  top: 29px;
+  left: 27px;
+}
+
+.index-food-company .btn-danger {
+  position: absolute;
+  top: 29px;
+  left: 27px;
 }
 
