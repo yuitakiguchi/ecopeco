@@ -139,11 +139,19 @@
                     </div>
                     <div class="row justify-content-center map">
                         <div class="col-md-12">
-                            <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{ config('services.google-map.apikey') }}&amp;q={{ $food->user->address }}'
+                            @if($food->user->address)
+                                <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{ config('services.google-map.apikey') }}&amp;q={{ $food->user->address }}'
+                                    width='100%'
+                                    height='320'
+                                    frameborder='0'>
+                                </iframe>
+                            @else
+                            <iframe id='' src=''
                                 width='100%'
                                 height='320'
                                 frameborder='0'>
                             </iframe>
+                            @endif
                         </div>
                     </div>
                     <h5>{{ $food->user->name }}その他クーポン</h5>
