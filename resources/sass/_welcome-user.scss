@@ -76,6 +76,54 @@
     }
   }
 
+  .how-to-company{
+    background-color: #CBD8B9;
+
+    .title{
+      text-align: center;
+    }
+
+    h1{
+      color: #6D6D6C;
+      font-size: 40px;
+    }
+
+    h2{
+      margin-top: 20px;
+      color: #78AF30;
+    }
+
+    .display-3{
+      float: left;
+      color: #5C6662;
+    }
+
+    .display-4{
+      color: #5C6662;
+    }
+
+    a{
+      text-decoration: none;
+      .card{
+        color: #fff;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 25px;
+        background-color: #84644D;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+      }
+          .card:hover{
+            -webkit-transform: translateY(-5px);
+            -ms-transform: translateY(-5px);
+            transform: translateY(-5px);
+      }
+    }
+  }
+
 
 
 
