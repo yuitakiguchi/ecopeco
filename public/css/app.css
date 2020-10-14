@@ -18252,3 +18252,48 @@ footer .row a {
   transform: translateY(-5px);
 }
 
+.welcome-user .how-to-company {
+  background-color: #CBD8B9;
+}
+
+.welcome-user .how-to-company .title {
+  text-align: center;
+}
+
+.welcome-user .how-to-company h1 {
+  color: #6D6D6C;
+  font-size: 40px;
+}
+
+.welcome-user .how-to-company h2 {
+  margin-top: 20px;
+  color: #78AF30;
+}
+
+.welcome-user .how-to-company .display-3 {
+  float: left;
+  color: #5C6662;
+}
+
+.welcome-user .how-to-company .display-4 {
+  color: #5C6662;
+}
+
+.welcome-user .how-to-company a {
+  text-decoration: none;
+}
+
+.welcome-user .how-to-company a .card {
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 25px;
+  background-color: #84644D;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.welcome-user .how-to-company a .card:hover {
+  transform: translateY(-5px);
+}
+
