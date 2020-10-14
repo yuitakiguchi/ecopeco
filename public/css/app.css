@@ -18180,3 +18180,75 @@ footer .row a {
   left: 27px;
 }
 
+.welcome-user .jumbotron-extend {
+  background-image: url(/images/welcome-user1.jpg?f993338aab26825bd09afc3a0f1ba974);
+  background-size: cover;
+  height: 100vh;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.welcome-user .jumbotron-extend h1 {
+  font-size: 70px;
+  font-weight: bold;
+  color: #78AF30;
+}
+
+.welcome-user .jumbotron-extend .title {
+  font-size: 40px;
+  margin-bottom: 0;
+}
+
+.welcome-user .jumbotron-extend .message {
+  font-size: 30px;
+}
+
+.welcome-user .jumbotron-extend p {
+  color: #6D6D6C;
+}
+
+.welcome-user .how-to-use {
+  background-color: #F4FAEC;
+}
+
+.welcome-user .how-to-use .title {
+  text-align: center;
+}
+
+.welcome-user .how-to-use h1 {
+  color: #6D6D6C;
+  font-size: 40px;
+}
+
+.welcome-user .how-to-use h2 {
+  margin-top: 20px;
+  color: #78AF30;
+}
+
+.welcome-user .how-to-use .display-3 {
+  float: left;
+  color: #BBCDC5;
+}
+
+.welcome-user .how-to-use .display-4 {
+  color: #BBCDC5;
+}
+
+.welcome-user .how-to-use a {
+  text-decoration: none;
+}
+
+.welcome-user .how-to-use a .card {
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 25px;
+  background-color: #84644D;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.welcome-user .how-to-use a .card:hover {
+  transform: translateY(-5px);
+}
+

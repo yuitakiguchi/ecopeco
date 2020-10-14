@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('welcome-user');
+})->name('user.welcome');
 
 //ルーティング使ってないやつ消す
 
