@@ -3,17 +3,17 @@
 @section('content')
 
 <div class="histories-user-company">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('foods.index') }}">TOP</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ route('users.histories.company', Auth::user()->id) }}">出品履歴</a>
-        </li>
-    </ul>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('foods.index') }}">TOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('users.histories.company', Auth::user()->id) }}">出品履歴</a>
+                    </li>
+                </ul>
                 <h1>{{ Auth::user()->name }}出品履歴</h1>
                 @foreach ($companyFoods as $purchaseHistories)
                 <div class="row justify-content-center">

@@ -26,20 +26,15 @@ Route::resource('foods', 'FoodController');
 Route::resource('users', 'UserController');
 
 Route::get('users/{user}/histories', 'UserController@history')->name('users.histories');
-
 Route::get('users/{user}/historiesCompany', 'UserController@history')->name('users.histories.company');
-
 Route::get('users/{user}/historiesReservation', 'UserController@historyReservation')->name('users.histories.reservation');
-
 Route::get('users/{user}/historiesPurchase', 'UserController@historyPurchase')->name('users.histories.purchase');
-
-Route::resource('bookings', 'BookingController');
 
 Route::resource('companies', 'CompanyController');
 
+Route::resource('bookings', 'BookingController');
 Route::post('foods/{food}/reservations', 'BookingController@store')->name('reservations');
 Route::post('foods/{food}/unreservations', 'BookingController@destroy')->name('unreservations');
-
 Route::post('foods/{food}/purchase', 'BookingController@store')->name('purchase');
 Route::post('foods/{food}/unpurchase', 'BookingController@destroy')->name('unpurchase');
 
@@ -52,3 +47,6 @@ Route::get('/contact', function () {
 Route::get('/registercompany', function () {
     return view('auth.registercompany');
 })->name('registercompany');
+
+Route::get('/terms/item', 'TermsController@item')->name('terms.item');
+Route::get('/terms/privacy', 'TermsController@privacy')->name('terms.privacy');

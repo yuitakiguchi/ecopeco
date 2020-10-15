@@ -3,21 +3,22 @@
 @section('content')
 
 <div class="histories-user-purchase">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.histories', Auth::user()->id) }}">TOP</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.histories.reservation', Auth::user()->id) }}">予約中</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ route('users.histories.purchase', Auth::user()->id) }}">購入履歴</a>
-        </li>
-    </ul> 
+    
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('users.histories', Auth::user()->id) }}">TOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('users.histories.reservation', Auth::user()->id) }}">予約中</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('users.histories.purchase', Auth::user()->id) }}">購入履歴</a>
+                    </li>
+                </ul> 
                 <h1>{{ Auth::user()->name }}さんの購入済み商品</h1>
                 @foreach ($purchaseHistories as $purchaseHistory)
                 <div class="row justify-content-center">

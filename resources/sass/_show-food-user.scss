@@ -51,6 +51,7 @@
     width: 300px;
     height: 200px;
     border: 10px solid #4D3724;
+    object-fit: cover;
   }
 
   .above-post-image{
@@ -60,6 +61,7 @@
     position: absolute;
     top: 135px;
     left: 85px;
+    object-fit: cover;
   }
   .above-shop-img{
     width: 170px;
@@ -68,6 +70,7 @@
     position: absolute;
     top: 760px;
     left: 85px;
+    object-fit: cover;
   }
 
   .table-bordered{
@@ -112,6 +115,7 @@
         width: 300px;
         height: 200px;
         border: 10px solid #4D3724;
+        object-fit: cover;
     }
 
   .map{

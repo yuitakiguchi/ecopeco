@@ -7,21 +7,14 @@ main{
     background:rgba(122,216,2,0.7);
     font-size: medium;
     .row{
-      align-items: center;
       p {
         color: #fff;
-      }
-  
-      p.ecopeco{
-        text-align: left;
-        letter-spacing: 3px;
       }
   
       a{
         color: #fff;
         text-decoration: none;
         display:block;
-        text-align: right;
       }
     }
   }
