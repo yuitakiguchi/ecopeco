@@ -34,7 +34,7 @@
                                         <p class="card-text">
                                             取引日：{{ \Carbon\Carbon::parse($reservationHistory->food->updated_at)->format("Y年n月j日") }}
                                         </p>
-                                        <p class="card-text">取引時間：{{ $reservationHistory->food->trading_time }}</p>
+                                        <p class="card-text">取引時間：{{ \Carbon\Carbon::parse($reservationHistory->food->trading_time)->format("H時i分") }}</p>
                                         <p class="card-text">{{ $reservationHistory->food->price }}円→{{ $reservationHistory->food->discount_price }}円</p>
                                         <p class="card-text">クーポン使用数：{{ $reservationHistory->count }}</p>
                                     </div>

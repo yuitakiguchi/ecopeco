@@ -22,10 +22,12 @@
                     <div class="card">
                         <div class="card-header">{{ $food->user->name }}</div>
                         <div class="card-body">
-                            <img class="img-fluid" src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
+                            <div class="col">
+                                <img class="product-image" src="{{ $food->image_name }}" alt="商品画像">
+                            </div>
                             <h5 class="card-title">{{ $food->name }}</h5>
-                            <p class="card-text">引取日：{{ $food->trading_date }}</p>
-                            <p class="card-text">引取時間：{{ $food->trading_time }}</p>
+                            <p class="card-text">引取日：{{ \Carbon\Carbon::parse($food->trading_date)->format("Y年n月j日") }}</p>
+                            <p class="card-text">引取時間：{{ \Carbon\Carbon::parse($food->trading_time)->format("H時i分") }}</p>
                             <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
                             <p class="card-text">クーポン{{ $food->coupon }}枚</p>
                         </div>
@@ -46,10 +48,12 @@
                     <div class="card">
                         <div class="card-header">{{ $food->user->name }}</div>
                         <div class="card-body">
-                            <img src="{{ $food->image_name }}" class="card-img-top" alt="商品画像">
+                            <div class="col">
+                                <img src="{{ $food->image_name }}" class="product-image" alt="商品画像">
+                            </div>
                             <h5 class="card-title">{{ $food->name }}</h5>
-                            <p class="card-text">引取日：{{ $food->trading_date }}</p>
-                            <p class="card-text">引取時間：{{ $food->trading_time }}</p>
+                            <p class="card-text">引取日：{{ \Carbon\Carbon::parse($food->trading_date)->format("Y年n月j日") }}</p>
+                            <p class="card-text">引取時間：{{ \Carbon\Carbon::parse($food->trading_time)->format("H時i分") }}</p>
                             <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
                             <p class="card-text">クーポン{{ $food->coupon }}枚</p>
                         </div>
@@ -133,7 +137,7 @@
                                                             <p>{{ $booking->user->name }}</p>
                                                             <p class="coupon">{{ $booking->count }}枚</p>
                                                         </div>
-                                                        <p>予約時刻{{ $booking->created_at }}</p>
+                                                        <p>予約時刻{{ \Carbon\Carbon::parse($booking->created_at)->format("H時i分") }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -141,9 +145,9 @@
                                                         @method('PATCH')
                                                         @csrf
                                                         @if($booking -> is_sold === 0)
-                                                        <input type="submit" value="予約中" class="btn btn-primary ">
+                                                        <input type="submit" value="予約中" class="btn btn-secondary mt-4">
                                                         @else
-                                                        <input type="submit" value="購入済み" class="btn btn-danger ">
+                                                        <input type="submit" value="購入済み" class="btn purchased mt-4">
                                                         @endif
                                                     </form>
                                                 </div>

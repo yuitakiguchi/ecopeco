@@ -12,8 +12,8 @@
     height: 300px;
     z-index: 6;
     position: absolute;
-    top: 397px;
-    left: 1140px;
+    top: 371px;
+    left: 1146px;
   }
 
   .contact1 {
@@ -32,18 +32,23 @@
       top: 45px;
       left: 120px;
   }
-  .btn{
-    margin-bottom: 80px;
+  .btn-primary{
       background-color: #6A8B41;
       border-color: #6A8B41;
       padding: 5px 60px;
       font-size: 20px;
-      margin-top: 80px;
+      margin-top: 30px;
 
       &:hover {
           background-color: #6A8B41;
           border-color: #6A8B41;
           opacity: .7;
       }
+  }
+  .btn-secondary{
+    margin-bottom: 50px;
+    padding: 5px 60px;
+    font-size: 20px;
+    margin-top: 9px;
   }
 }
