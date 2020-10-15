@@ -3,20 +3,21 @@
 @section('content')
 
 <div class="histories-user-top">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ route('users.histories', Auth::user()->id) }}">TOP</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.histories.reservation', Auth::user()->id) }}">予約中</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('users.histories.purchase', Auth::user()->id) }}">購入履歴</a>
-        </li>
-    </ul> 
+    
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 card-top">
+                <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('users.histories', Auth::user()->id) }}">TOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('users.histories.reservation', Auth::user()->id) }}">予約中</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('users.histories.purchase', Auth::user()->id) }}">購入履歴</a>
+                    </li>
+                </ul> 
                 <h1>{{ Auth::user()->name }}さんの利用履歴</h1>
                 @isset(Auth::user() -> history)
                 <div class="row justify-content-center">

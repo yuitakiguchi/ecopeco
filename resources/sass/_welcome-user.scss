@@ -4,7 +4,8 @@
     background-image: url('public/images/welcome-user1.jpg');
     background-size: cover;
     height: 100vh;
-    margin-bottom: 0;
+    // width: 100vw;
+    margin: 0;
     padding: 0;
 
     h1{
@@ -124,8 +125,7 @@
     }
   }
 
-
-
-
-
+  img{
+    object-fit: cover;
+  }
 }

@@ -67,14 +67,6 @@
 </div>
 @else
     <div class="index-food-company">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{ route('foods.index') }}">TOP</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('users.histories.company', Auth::user()->id) }}">出品履歴</a>
-            </li>
-        </ul>
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
@@ -85,6 +77,14 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-8">
+                    <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('foods.index') }}">TOP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.histories.company', Auth::user()->id) }}">出品履歴</a>
+                        </li>
+                    </ul>
                     @include('layouts.flash')
                     <h1>{{ Auth::user()->name }}出品中商品一覧</h1>
                     @foreach ($companyFoods as $companyFood)

@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="welcome-user containar">
+<div class="welcome-user">
 
     <div class="jumbotron jumbotron-extend row justify-content-center">
         <div class="col-md-8 text-center">
-            <p class="title" style="font-family: 'sofia',cursive;">Food sharing platform</p>
+            <p class="title mt-4" style="font-family: 'sofia',cursive;">Food sharing platform</p>
             <h1>ecopeco</h1>
             <div class="row justify-content-center">
                 <div class="col-8">
@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-center how-to-use">
+    <div class="row justify-content-center how-to-use mx-0">
         <div class="col-md-8 ">
             <div class="title">
                 <h1 class="pt-5" style="font-family: 'sofia',cursive;">How to use for users</h1>
@@ -61,7 +61,7 @@
         <img class="pb-5 img-fluid" src="../images/welcome-user3.jpg">
     </div>
 
-    <div class="row justify-content-center how-to-company">
+    <div class="row justify-content-center how-to-company mx-0">
         <div class="col-md-8 ">
             <div class="title">
                 <h1 class="pt-5" style="font-family: 'sofia',cursive;">How to use for companys</h1>
@@ -106,9 +106,6 @@
 
         </div>
     </div>
-
-
-
 
 </div>
 
