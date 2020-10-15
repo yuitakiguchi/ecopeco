@@ -70,9 +70,8 @@
                                         <p class="card-text">
                                             取引日：{{ \Carbon\Carbon::parse($purchaseHistories->updated_at)->format("Y年n月j日") }}
                                         </p>
-                                        <p class="card-text">取引時間：{{ $purchaseHistories->trading_time }}</p>
+                                        <p class="card-text">取引時間：{{ \Carbon\Carbon::parse($purchaseHistories->trading_time)->format("H時i分") }}</p>
                                         <p class="card-text">{{ $purchaseHistories->price }}円→{{ $purchaseHistories->discount_price }}円</p>
-                                        <p class="card-text">クーポン使用数：{{ $purchaseHistories->count }}</p>
                                         <p class="card-text">
                                             商品投稿日：{{ \Carbon\Carbon::parse($purchaseHistories->updated_at)->format("Y年n月j日") }}</p>
                                     </div>

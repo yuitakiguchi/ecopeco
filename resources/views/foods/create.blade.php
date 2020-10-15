@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button action="{{ route('foods.index') }}" type="button" class="btn btn-secondary">戻る</button>
+                        <a href="{{ route('foods.index') }}" type="button" class="btn btn-secondary">戻る</a>
                     </div>
                 </form>
             </div>
