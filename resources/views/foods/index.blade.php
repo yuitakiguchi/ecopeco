@@ -9,39 +9,39 @@
             <button type="submit" class="area-search btn btn-primary">検索</button>
         </form>
         @if ($keyword)
-        @if($area && $area->users())
-        <p class="search-results">検索結果</p>
-        <div class="row mb-5 justify-content-center">
-            @foreach ($area->users as $user)
-            @foreach ($user->foods as $food)
-            @if($food->trading_date <= \Carbon\Carbon::today())
-            @continue
-            @endif
-            <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
-                <a href="{{ route('foods.show',$food->id) }}">
-                    <div class="card">
-                        <div class="card-header">{{ $food->user->name }}</div>
-                        <div class="card-body">
-                            <div class="col">
-                                <img class="product-image" src="{{ $food->image_name }}" alt="商品画像">
+            @if($area && $area->users())
+            <p class="search-results">検索結果</p>
+            <div class="row mb-5 justify-content-center">
+                @foreach ($area->users as $user)
+                @foreach ($user->foods as $food)
+                    @if($food->trading_date <= \Carbon\Carbon::today())
+                        @continue
+                    @endif
+                <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
+                    <a href="{{ route('foods.show',$food->id) }}">
+                        <div class="card">
+                            <div class="card-header">{{ $food->user->name }}</div>
+                            <div class="card-body">
+                                <div class="col">
+                                    <img class="product-image" src="{{ $food->image_name }}" alt="商品画像">
+                                </div>
+                                <h5 class="card-title">{{ $food->name }}</h5>
+                                <p class="card-text">引取日：{{ \Carbon\Carbon::parse($food->trading_date)->format("Y年n月j日") }}</p>
+                                <p class="card-text">引取時間：{{ \Carbon\Carbon::parse($food->trading_time)->format("H時i分") }}</p>
+                                <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
+                                <p class="card-text">クーポン{{ $food->coupon }}枚</p>
                             </div>
-                            <h5 class="card-title">{{ $food->name }}</h5>
-                            <p class="card-text">引取日：{{ \Carbon\Carbon::parse($food->trading_date)->format("Y年n月j日") }}</p>
-                            <p class="card-text">引取時間：{{ \Carbon\Carbon::parse($food->trading_time)->format("H時i分") }}</p>
-                            <p class="card-text">{{ $food->price }}円→{{ $food->discount_price }}円</p>
-                            <p class="card-text">クーポン{{ $food->coupon }}枚</p>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                @endforeach
+                @endforeach
             </div>
-            @endforeach
-            @endforeach
-        </div>
+            @else
+                <p class="not-found">見つかりませんでした。</p>
+            @endif
         @else
-        <p class="not-found">見つかりませんでした。</p>
-        @endif
-        @else
-        <div class="row mb-5 justify-content-center">
+        <div class="row pb-5 justify-content-center">
             @foreach ($foods as $food)
             <div class="col-md-6 col-xl-3 mb-5 text-center mx-auto">
                 <a href="{{ route('foods.show',$food->id) }}">

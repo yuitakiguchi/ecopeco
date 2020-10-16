@@ -103,7 +103,7 @@
                     <h5>店舗詳細</h5>
                     <div class="row justify-content-center">
                         <div class="card-body">
-                            <img class="img-fluid shop-img" src="{{ $food->user->image_name ? $food->image_name : '../../images/show-food-user6.png'}}" alt="店舗写真">
+                            <img class="img-fluid shop-img" src="{{ $food->user->image_name ? $food->user->image_name : '../../images/show-food-user6.png'}}" alt="店舗写真">
                             <img class="above-shop-img d-none  d-xl-inline-block" src="../../images/show-food-user1.png">
                         </div>
                         <div class="col-md-6">
